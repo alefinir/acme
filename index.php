@@ -6,14 +6,15 @@
 	<meta name="description" content="ACME Foods">
 	<meta name="author" content="Team 4 -- CIT 336 -- BYUI">
 	<link href="https://fonts.googleapis.com/css?family=Bangers|Lora" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="styles/main.css">
-	<link rel="stylesheet" type="text/css" href="styles/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/medium.css">
+	<link rel="stylesheet" type="text/css" href="css/small.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<title>ACME</title>
 </head>
 <body>
 	<header>
-		<nav>		
-		</nav>
+		<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?> 
 	</header>
 	<section>
 		<article>

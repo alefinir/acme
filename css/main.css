@@ -1,14 +1,61 @@
 
 h1{
 
+	letter-spacing: 5px;
 	font-family: 'Bangers', cursive;
 }
 
 p{
 	font-family: 'Lora', serif;
 }
-    
 
-    
+.navigation {	
+    background-color: #de2226;
+    overflow: hidden;
+    text-align: center;
+    border-top: 4px solid #000000;
+    border-bottom: 4px solid #000000;
+  }
+.navigation li { display: inline-block; margin-left: .25rem; }
+.navigation a {	
+   display: block;
+   color: #000000;
+   padding: .5rem;
+   text-align: center;
+   text-decoration: none;
+   font-weight: bold;
+  }
+.navigation a:hover {
+	color: #990033;
+	background-color: #ffffff;
+	font-weight: bolder;
+          
+  }
+  .logo{
+	display: block;
+  }
+  .logo-small{
+	display: none;
+  }
 
+.account{
+	text-align: right;
+	flex: 1 6 20%;
+	
+}
+.account h2{
+
+	letter-spacing: 1px;
+	font-family: 'Bangers', cursive;
+	font-size: 1em;
+}
  
+.box-father{ 
+ 	display: flex;
+ 	flex-direction: row;
+
+}
+ 
+ .logoizq{
+ 	flex: 1 6 20%;
+ }
