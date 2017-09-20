@@ -21,6 +21,11 @@
  .img-acc {
  	width: 58px;
  	height: 40px;
+}
+.account h2{
+  letter-spacing: 1px;
+  font-family: 'Bangers', cursive;
+  font-size: 0.7  em;
 }   
 
 }

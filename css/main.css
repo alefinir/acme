@@ -15,6 +15,8 @@ p{
     text-align: center;
     border-top: 4px solid #000000;
     border-bottom: 4px solid #000000;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 .navigation li { display: inline-block; margin-left: .25rem; }
 .navigation a {	
@@ -41,7 +43,8 @@ p{
 .account{
 	text-align: right;
 	flex: 1 6 20%;
-	
+    margin-right: 20px;
+    margin-top: 20px;
 }
 .account h2{
 
@@ -58,4 +61,7 @@ p{
  
  .logoizq{
  	flex: 1 6 20%;
+  margin-left: 20px;
+  margin-top: 20px;
  }
+
