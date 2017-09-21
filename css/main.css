@@ -35,8 +35,8 @@ p{
     text-align: center;
     border-top: 4px solid #000000;
     border-bottom: 4px solid #000000;
-    margin-left: 20px;
-    margin-right: 20px;
+    /*margin-left: 20px;
+    margin-right: 20px;*/
   }
 .navigation li { display: inline-block; margin-left: .25rem; }
 .navigation a {	
@@ -102,17 +102,18 @@ footer {
   text-align: center;
   font-weight: bolder;
   border-top: 20px solid #000;
-  margin-left: 20px;
-  margin-right: 20px;
+  /*margin-left: 20px;
+  margin-right: 20px;*/
   font-size: 0.7em;
 }
 .all{
   background-color: white;
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-top: 20px;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 header{
   background-color: white;
-  margin-left: 20px;
-  margin-right: 20px; 
+  margin-left: 60px;
+  margin-right: 60px; 
 }
