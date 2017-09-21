@@ -1,8 +1,28 @@
+body {
+ background-image: url("../images/site/background.jpg");
+ background-position: center center;   
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: cover;
+}
+
 
 h1{
   text-align: center;
 	letter-spacing: 5px;
 	font-family: 'Bangers', cursive;
+}
+
+h2{
+  text-align: left;
+  letter-spacing: 2px;
+  font-family: 'Bangers', cursive;
+}
+
+h3{
+  text-align: right;
+  letter-spacing: 2px;
+  font-family: 'Bangers', cursive;
 }
 
 p{
@@ -85,4 +105,14 @@ footer {
   margin-left: 20px;
   margin-right: 20px;
   font-size: 0.7em;
+}
+.all{
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+header{
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px; 
 }

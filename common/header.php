@@ -7,7 +7,7 @@
 		<a href="index.php">
 			<img class="img-acc" src="images/site/account-small.gif" alt="Logo ACME Foods"> 
 		</a>
-		<h2>My Account</h2>
+		<h3>My Account</h3>
 	</div>
 </div>
 <nav class="navigation">
