@@ -18,7 +18,7 @@
 	</header>
 	<section>
 		<article>
-			<h1>HOME -- ACME FOODS</h1>
+			<h1>HOME</h1>
 			<p>..all is good</p>
 		</article>
 	</section>
