@@ -28,7 +28,8 @@
 	</section>
 	<aside>	
 	</aside>
-	<footer>		
+	<footer>
+			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>
   <script src='scripts/jquery-3.0.0.js' type='text/javascript'></script>
   <script src='scripts/script.js' type='text/javascript'></script>

@@ -74,3 +74,15 @@ p{
     color: #262128;
 }
 
+
+footer {
+  color: #000000;
+  background-color: #808080;
+  clear:both;
+  text-align: center;
+  font-weight: bolder;
+  border-top: 20px solid #000;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 0.7em;
+}
