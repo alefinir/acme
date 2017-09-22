@@ -32,5 +32,23 @@
       flex-direction: column;
 }
 
+#actionbtn{
+  display: none;
+}
+
+#actionbtn-small{
+  display: block;
+}
+
+.welcome{
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ background: url("../images/site/rocketfeature.jpg") 50% 50% no-repeat;
+ background-size: cover;
+ width: 100% ;
+ height: auto;
+ 
+}
 
 }

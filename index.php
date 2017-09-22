@@ -18,58 +18,71 @@
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?> 
 	</header>
 	<div class="all">
-	<div class="container" >	
-	<section>
-		<article class="welcome">
-			<h1>WELCOME TO ACME!</h1>
-			<img src="images/site/rocketfeature.jpg" alt="Image Rocket Feature">
-			<div class="calltoaction">
-  				<ul>
-				    <li><h2>Acme Rocket</h2></li>
-				    <li>Quick lighting fuse</li>
-				    <li>NHTSA approved seat belts</li>
-				    <li>Mobile launch stand included</li>
-				    <li><a href="/acme/cart/"><img id="actionbtn" alt="Add to cart button" src="images/site/iwantit.gif"></a></li>
-			    </ul>
-			</div>
-		</article>
-	</section>
-	<section class="gallery">
-		<article>
-				<div>
-					<h2>Featured Recipes</h2>
-				</div>
-				<div>
-				    <a href="#"><img src="images/recipes/bbqsand.jpg" alt="bbqsand"></a>
-    				<p>Pulled Roadrunner BBQ</p>
-    			</div>
-				<div>
-				    <a href="#"><img src="images/recipes/potpie.jpg" alt="porpie"></a>
-    				<p>Roadrunner Pot Pie</p>
-    			</div>
-				<div>
-				    <a href="#"><img src="images/recipes/soup.jpg" alt="soup"></a>
-    				<p>Roadrunner Soup</p>
-    			</div>
-				<div>
-				    <a href="#"><img src="images/recipes/taco.jpg" alt="taco"></a>
-    				<p>Roadrunner Tacos</p>
-    			</div>
+					<h1>WELCOME TO ACME!</h1>
+			<section>
+				<article class="welcome">
 
-		</article>
-	</section>
-	<section class="recipe">
-		<article>
-				<h2>Get Dinner Rocket Reviews</h2>
-				<ul>
-				    <li>"I don't know how I ever caught roadrunners before this." (4/5)</li>
-				    <li>"That thing was fast!" (4/5)</li>
-				    <li>"Talk about fast delivery." (5/5)</li>
-				    <li>"I didn't even have to pull the meat apart." (4.5/5)</li>
-				    <li>"I'm on my thirtieth one. I love these things!" (5/5)</li>
-				</ul>				
-		</article>
-	</section>
+					<div class="calltoaction">
+		  				<ul>
+						    <li><h2>Acme Rocket</h2></li>
+						    <li>Quick lighting fuse</li>
+						    <li>NHTSA approved seat belts</li>
+						    <li>Mobile launch stand included</li>
+						    <li><a href="/acme/cart/"><img id="actionbtn" alt="Add to cart button" src="images/site/iwantit.gif"></a></li>
+						    <li><a href="/acme/cart/"><img id="actionbtn-small" alt="Add to cart button" src="images/site/iwantit-small.gif"></a></li>
+					    </ul>
+					</div>
+				</article>
+			</section>
+			<div class="container" >	
+			<section class="gallery">
+				<article>
+
+						<div>
+							<h2>Featured Recipes</h2>
+						</div>
+					<div id="first">						
+						<div>
+							<figure>
+						    	<a href="#"><img src="images/recipes/bbqsand.jpg" alt="bbqsand"></a>
+		    					<figcaption>Pulled Roadrunner BBQ</figcaption>
+			    				</div>
+							</figure>
+						<div>
+							<figure>
+						    	<a href="#"><img src="images/recipes/potpie.jpg" alt="porpie"></a>
+		    					<figcaption>Roadrunner Pot Pie</figcaption>
+		    				</figure>
+		    			</div>
+		    		</div>
+		    		<div id="second">		    			
+						<div>
+							<figure>
+						    <a href="#"><img src="images/recipes/soup.jpg" alt="soup"></a>
+		    				<figcaption>Roadrunner Soup</figcaption>
+		    				</figure>
+		    			</div>
+						<div>
+							<figure>
+						    	<a href="#"><img src="images/recipes/taco.jpg" alt="taco"></a>
+		    					<figcaption>Roadrunner Tacos</figcaption>
+		    				</figure>
+		    			</div>
+		    		</div>	
+				</article>
+			</section>
+			<section class="recipe">
+				<article>
+						<h2>Get Dinner Rocket Reviews</h2>
+						<ul>
+						    <li>"I don't know how I ever caught roadrunners before this." (4/5)</li>
+						    <li>"That thing was fast!" (4/5)</li>
+						    <li>"Talk about fast delivery." (5/5)</li>
+						    <li>"I didn't even have to pull the meat apart." (4.5/5)</li>
+						    <li>"I'm on my thirtieth one. I love these things!" (5/5)</li>
+						</ul>				
+				</article>
+			</section>
 	</div>
 	<aside>	
 	</aside>
