@@ -28,5 +28,9 @@
   font-size: 0.7  em;
 }   
 
+.container{
+      flex-direction: column;
+}
+
 
 }

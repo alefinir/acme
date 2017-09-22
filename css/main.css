@@ -117,3 +117,23 @@ header{
   margin-left: 60px;
   margin-right: 60px; 
 }
+.container{
+  display: flex;
+
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  display: flex;
+  
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+
+}
+
+.welcome{
+   display: flex;
+    padding: 0;
+    margin: 0;
+  
+}

@@ -18,8 +18,9 @@
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?> 
 	</header>
 	<div class="all">
-	<section class="welcome">
-		<article>
+	<div class="container" >	
+	<section>
+		<article class="welcome">
 			<h1>WELCOME TO ACME!</h1>
 			<img src="images/site/rocketfeature.jpg" alt="Image Rocket Feature">
 			<div class="calltoaction">
@@ -69,6 +70,7 @@
 				</ul>				
 		</article>
 	</section>
+	</div>
 	<aside>	
 	</aside>
 	<footer>
