@@ -59,12 +59,7 @@ p{
 	font-weight: bolder;
           
   }
-  .logo{
-	display: block;
-  }
-  .logo-small{
-	display: none;
-  }
+ 
 
 .account{
 	text-align: right;
@@ -100,6 +95,9 @@ p{
     color: #262128;
 }
 
+.recipe article h2{
+  text-align: center;
+}
 
 footer {
   color: #000000;
@@ -138,17 +136,7 @@ header{
 }
 
 
-.welcome{
- display: flex;
- flex-direction: row-reverse;
- align-items: center;
- background: url("../images/site/rocketfeature.jpg") 50% 50% no-repeat;
- background-size: cover;
- width: 100% ;
- height: 400px;
- height: auto;
- 
-}
+
 
 #actionbtn-small{
   display: none;
@@ -156,10 +144,22 @@ header{
 #first{
   display: flex;
   text-align: center;
+  justify-content:center
+}
+
+#first div{
+  width: 155px;
+  height: 155px;
 }
 #second{
   display: flex;
   text-align: center;
+  justify-content:center
+}
+
+#second div{
+  width: 155px;
+  height: 155px;
 }
 
 .gallery h2 {

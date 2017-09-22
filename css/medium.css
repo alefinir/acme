@@ -1,3 +1,26 @@
 /*tablet*/
 @media only screen and (min-width: 37.5em) {
+.welcome{
+ display: flex;
+ flex-direction: row-reverse;
+ align-items: center;
+ background: url("../images/site/rocketfeature.jpg") 50% 50% no-repeat;
+ background-size: cover;
+ width: 100% ;
+ height: 200px;
+ 
+}
+
+  .logo{
+	display: none;
+  }
+  .logo-small{
+	display: inline;
+  }
+
+   .img-acc {
+ 	width: 58px;
+ 	height: 40px;
+}
+
 }
