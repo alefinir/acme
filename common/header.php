@@ -1,11 +1,11 @@
 <div class="box-father">
 	<div class="logoizq">
-		<img class="logo" src="images/site/logo.gif" alt="Logo ACME Foods"> 
-		<img class="logo-small" src="images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"> 
+		<img class="logo" src="../images/site/logo.gif" alt="Logo ACME Foods"> 
+		<img class="logo-small" src="../images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"> 
 	</div>
 	<div class="account">
 		<a href="index.php">
-			<img class="img-acc" src="images/site/account-small.gif" alt="Logo ACME Foods"> 
+			<img class="img-acc" src="../images/site/account-small.gif" alt="Logo ACME Foods"> 
 		</a>
 		<h3>My Account</h3>
 	</div>

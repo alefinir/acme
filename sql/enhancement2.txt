@@ -1,0 +1,46 @@
+
+CREATE TABLE clients
+(
+  clientId INTEGER(10) NOT NULL PRIMARY KEY,
+  clientFirstname VARCHAR(15) NOT NULL,
+  clientLastname VARCHAR(25) NOT NULL,
+  clientEmail VARCHAR(40) NOT NULL,
+  clientPassword VARCHAR(255) NOT NULL,
+  clientLevel ENUM('1','2','3'),
+  comments TEXT
+  
+    )
+
+ 1-
+
+ INSERT INTO clients
+(clientFirstname, clientLastname, clientEmail, clientPassword, comments)
+VALUES
+('Tony', 'Stark', 'tony@starkent.com', 'Iam1ronM@n', 'I am the real Ironman')
+
+2-
+
+UPDATE
+	clients
+SET
+ 	clientLevel ='3'
+WHERE 
+	clientId = 0
+
+3- 
+
+UPDATE inventory SET invName = replace(invName, 'Nylon Rope', 'Climbing Rope') WHERE invName LIKE 'Nylon%' 
+
+4-
+
+SELECT invName, categoryName FROM inventory 
+INNER JOIN categories ON inventory.categoryId=categories.categoryId
+where categoryName LIKE "Misc" 
+
+5-
+
+DELETE
+FROM
+	inventory
+WHERE
+	invName LIKE "Koenigsegg CCX Car"
