@@ -19,12 +19,17 @@
 	</header>
 	<div class="all">
 	<h1>Login</h1>
-
+    <fieldset class="tight">
         eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required><br>
       </label>
       <label>
         Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required autofocus><br>
      </label> 
+        </fieldset> 
+
+    <div >
+      <input type="submit" id="sbutton">
+    </div>  
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>

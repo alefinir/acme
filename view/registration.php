@@ -40,6 +40,10 @@
 
     </fieldset>  
 
+        <div>
+      <input type="submit" id="sbutton">
+    </div>
+
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>
