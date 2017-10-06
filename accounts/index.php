@@ -1,12 +1,12 @@
 <?php
-	require_once 'library/connections.php';
-	require_once 'model/acme-model.php';
+	require_once '/acme/library/connections.php';
+	require_once '/acme/model/acme-model.php';
 
 	$categories = getCategories();
 	//var_dump($categories);
 	//exit;
 
-	global $navList = '<ul>';
+	$navList = '<ul>';
 	$navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home</a></li>";
 
 	foreach ($categories as $category) {
@@ -24,12 +24,12 @@
 	}
 	switch ($action){
 
-	 case 'something':
+	 case '':
 
 	 break;
 
 	 default:
-	  include 'view/home.php';
+	  
 } 
 
 ?>

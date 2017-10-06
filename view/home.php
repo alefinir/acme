@@ -6,17 +6,18 @@
 	<meta name="description" content="Home -- ACME Foods">
 	<meta name="author" content="Team 4 -- CIT 336 -- BYUI">
 	<link href="https://fonts.googleapis.com/css?family=Bangers%7CLora" rel="stylesheet"> 
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/medium.css">
-	<link rel="stylesheet" type="text/css" href="css/small.css">
-	<link rel="stylesheet" type="text/css" href="css/large.css">
-	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/acme/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/acme/css/medium.css">
+	<link rel="stylesheet" type="text/css" href="/acme/css/small.css">
+	<link rel="stylesheet" type="text/css" href="/acme/css/large.css">
+	<link rel="stylesheet" type="text/css" href="/acme/css/normalize.css">
 	<title>ACME</title>
 </head>
 <body>
 
 	<header>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?> 
+
 	</header>
 	<div class="all">
 					<h1>WELCOME TO ACME!</h1>
@@ -29,8 +30,8 @@
 								    <li>Quick lighting fuse</li>
 								    <li>NHTSA approved seat belts</li>
 								    <li>Mobile launch stand included</li>
-								    <li><a href="/acme/cart/"><img id="actionbtn" alt="Add to cart button" src="images/site/iwantit.gif"></a></li>
-								    <li><a href="/acme/cart/"><img id="actionbtn-small" alt="Add to cart button" src="images/site/iwantit-small.gif"></a></li>
+								    <li><a href="/acme/cart/"><img id="actionbtn" alt="Add to cart button" src="/acme/images/site/iwantit.gif"></a></li>
+								    <li><a href="/acme/cart/"><img id="actionbtn-small" alt="Add to cart button" src="/acme/images/site/iwantit-small.gif"></a></li>
 					    		</ul>
 							</div>
 							</article>
@@ -46,13 +47,13 @@
 								<div id="first">						
 									<div>
 										<figure>
-							    			<a href="#"><img src="images/recipes/bbqsand.jpg" alt="bbqsand"></a>
+							    			<a href="#"><img src="/acme/images/recipes/bbqsand.jpg" alt="bbqsand"></a>
 			    							<figcaption>Pulled Roadrunner BBQ</figcaption>
 										</figure>
 									</div>	
 									<div>
 									<figure>
-						    			<a href="#"><img src="images/recipes/potpie.jpg" alt="porpie"></a>
+						    			<a href="#"><img src="/acme/images/recipes/potpie.jpg" alt="porpie"></a>
 		    							<figcaption>Roadrunner Pot Pie</figcaption>
 		    						</figure>
 		    						</div>
@@ -60,13 +61,13 @@
 		    					<div id="second">		    			
 									<div>
 										<figure>
-						    					<a href="#"><img src="images/recipes/soup.jpg" alt="soup"></a>
+						    					<a href="#"><img src="/acme/images/recipes/soup.jpg" alt="soup"></a>
 		    									<figcaption>Roadrunner Soup</figcaption>
 		    							</figure>
 		    						</div>
 									<div>
 										<figure>
-						    					<a href="#"><img src="images/recipes/taco.jpg" alt="taco"></a>
+						    					<a href="#"><img src="/acme/images/recipes/taco.jpg" alt="taco"></a>
 		    							<figcaption>Roadrunner Tacos</figcaption>
 		    							</figure>
 		    						</div>
@@ -92,7 +93,7 @@
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>
   </div>
-  <script src='scripts/jquery-3.0.0.js' type='text/javascript'></script>
-  <script src='scripts/script.js' type='text/javascript'></script>
+  <script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
+  <script src='/acme/scripts/script.js' type='text/javascript'></script>
 </body>
 </html>
