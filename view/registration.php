@@ -19,31 +19,32 @@
 	</header>
 	<div class="all">
 	<h1>Registration</h1>
-
+<div class="ablock">
+  <form>
     <fieldset class="tight">
       <legend>Personal Information</legend>
       <label>
         First Name: <input type="text" name="clientFirstname" value="" placeholder="First Name" pattern="[a-z A-Z]{5,99}" required autofocus><br>
      </label>
       <label>
-        Last Name: <input type="text" name="clientLastname" value="" placeholder="Last Name" pattern="[a-z A-Z]{5,99}" required autofocus><br>
+        Last Name: <input type="text" name="clientLastname" value="" placeholder="Last Name" pattern="[a-z A-Z]{5,99}" required><br>
      </label>      
       <label>
         eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required><br>
       </label>
       <label>
-        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required autofocus><br>
+        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
      </label>      
       <label>
-        Confirm Password: <input type="password" name="clientConfirmpassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required autofocus><br>
-     </label>      
-
+        Confirm Password: <input type="password" name="clientConfirmpassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
+     </label>
     </fieldset>  
 
-        <div>
+    <div>
       <input type="submit" id="sbutton">
     </div>
-
+  </form>
+</div>
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>

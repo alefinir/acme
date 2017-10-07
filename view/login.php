@@ -19,23 +19,27 @@
 	</header>
 	<div class="all">
 	<h1>Login</h1>
+	<div class="ablock">
+		<form>
     <fieldset class="tight">
-        eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required><br>
-      </label>
+    <label>	
+        eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required autofocus><br>
+    </label>
       <label>
-        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required autofocus><br>
-     </label> 
-        </fieldset> 
-
+        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
+    </label>
+        </fieldset>
     <div >
       <input type="submit" id="sbutton">
 		<a href="/acme/index.php?action=registration">Create an Account</a>      
-    </div>  
+    </div>
+    </form>  
+</div>
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>
   </div>
-  <script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
+  	<script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
   <script src='/acme/scripts/script.js' type='text/javascript'></script>
 </body>
 </html>

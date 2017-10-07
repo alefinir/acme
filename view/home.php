@@ -22,7 +22,7 @@
 	<div class="all">
 					<h1>WELCOME TO ACME!</h1>
 					<section>
-						
+						<h6>.</h6>
 							<article class="welcome">
 							<div class="calltoaction">
 		  						<ul>
@@ -36,9 +36,10 @@
 							</div>
 							</article>
 					</section>
+					<h6>.</h6>
 					<div class="container" >	
 						<section class="gallery">
-							
+							<h6>.</h6>
 							<article>
 								<div>
 									<h2>Featured Recipes</h2>
@@ -75,6 +76,7 @@
 							</article>
 						</section>
 			<section class="recipe">
+				<h6>.</h6>
 				<article>
 						<h2>Get Dinner Rocket Reviews</h2>
 						<ul>

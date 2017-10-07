@@ -167,13 +167,22 @@ header{
 
 /*forms*/
 .forms body {line-height: 1.5em;}
-.forms h2 {margin-left:20px;border-bottom:1px solid #777; font-size: 1.2em;color:orangered;}
+.forms h2 {margin-left:20px;border-bottom:1px solid #777; font-size: 1.2em;color:#0000ee;}
 /*.ablock {margin-left:30px;}*/
-.tight input {margin:5px 20px; font-size:.8em; background-color:#f2dac4;}
-.tight textarea {margin:5px 20px; font-size:.8em; background-color:#f2dac4;}
+.tight input {color:#000000; margin:5px 20px; font-size:.8em; background-color:#de2226;}
+.tight textarea {margin:5px 20px; font-size:.8em; background-color:#de2226;}
 .tight label {}
-.tight fieldset {margin-bottom:15px; background-color:#f2dac4;}
-.tight legend { color:#405d52; font-weight: bolder;}
+.tight fieldset {margin-bottom:15px; background-color:#de2226;}
+.tight legend { color:#000000; font-weight: bolder;}
 #sbutton{
-  margin:5px 20px; font-size: 1.1em;  background: #262128;  color: #f2dac4;
+  margin:5px 20px; font-size: 1.1em;  background: #262128;  color: #de2226;
+}
+
+.ablock {
+    margin-left:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 }
