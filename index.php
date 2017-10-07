@@ -6,7 +6,7 @@
 	//var_dump($categories);
 	//exit;
 
-	global $navList = '<ul>';
+	$navList = '<ul>';
 	$navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home</a></li>";
 
 	foreach ($categories as $category) {
@@ -21,12 +21,23 @@
 	$action = filter_input(INPUT_POST, 'action');
 	if ($action == NULL){
 	 $action = filter_input(INPUT_GET, 'action');
+	 	if ($action == NULL){
+	 		$action='home';
+	 	}
 	}
 	switch ($action){
+	 case 'home':
+		include 'view/home.php';
+	 break;		
 
-	 case 'something':
-
+	 case 'login':
+		include 'view/login.php';
 	 break;
+
+	 case 'registration':
+		include 'view/registration.php';
+	 break;
+
 
 	 default:
 	  include 'view/home.php';
