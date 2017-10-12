@@ -4,7 +4,7 @@
 		<img class="logo-small" src="/acme/images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"> 
 	</div>
 	<div class="account">
-		<a href="/acme/index.php?action=login">
+		<a href="/acme/view/login.php">
 			<img class="img-acc" src="/acme/images/site/account-small.gif" alt="Logo ACME Foods"> 
 		</a>
 		<h3>My Account</h3>

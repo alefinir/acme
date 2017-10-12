@@ -20,20 +20,26 @@
 	<div class="all">
 	<h1>Registration</h1>
 <div class="ablock">
-  <form>
+
+<?php
+    if (isset($message)) {
+     echo $message;
+}
+?>  
+  <form  method="post" action="/acme/accounts/index.php">
     <fieldset class="tight">
       <legend>Personal Information</legend>
       <label>
-        First Name: <input type="text" name="clientFirstname" value="" placeholder="First Name" pattern="[a-z A-Z]{5,99}" required autofocus><br>
+        First Name: <input type="text" name="clientFirstname" id="clientFirstname" value="" placeholder="First Name" pattern="[a-z A-Z]{5,99}" required autofocus><br>
      </label>
       <label>
-        Last Name: <input type="text" name="clientLastname" value="" placeholder="Last Name" pattern="[a-z A-Z]{5,99}" required><br>
+        Last Name: <input type="text" name="clientLastname" id="clientLastname" value="" placeholder="Last Name" pattern="[a-z A-Z]{5,99}" required><br>
      </label>      
       <label>
-        eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" placeholder="yourname@yourdomain.com" required><br>
       </label>
       <label>
-        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
+        Password: <input type="password" name="clientPassword" id="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
      </label>      
       <label>
         Confirm Password: <input type="password" name="clientConfirmpassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
@@ -41,7 +47,8 @@
     </fieldset>  
 
     <div>
-      <input type="submit" id="sbutton">
+        <input type="submit" name="submit" id="regbtn" value="Register">
+        <input type="hidden" name="action" value="register">        
     </div>
   </form>
 </div>

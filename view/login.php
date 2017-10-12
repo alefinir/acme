@@ -18,20 +18,25 @@
 		<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/header.php'; ?> 
 	</header>
 	<div class="all">
-	<h1>Login</h1>
+	<h1>Acme Login</h1>
+		<?php
+		if (isset($message)) {
+		 echo $message;
+		}
+		?>	
 	<div class="ablock">
-		<form>
+<form action="/acme/accounts/index.php" method="post"> 
     <fieldset class="tight">
     <label>	
-        eMail: <input type="email" name="email" placeholder="yourname@yourdomain.com" required autofocus><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" placeholder="yourname@yourdomain.com" required autofocus><br>
     </label>
       <label>
-        Password: <input type="password" name="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
+        Password: <input type="password" name="clientPassword" id="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
     </label>
         </fieldset>
     <div >
       <input type="submit" id="sbutton">
-		<a href="/acme/index.php?action=registration">Create an Account</a>      
+		<a href="/acme/view/registration.php">Create an Account</a>      
     </div>
     </form>  
 </div>
