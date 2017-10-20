@@ -38,7 +38,7 @@ foother*/
 	$categoriesId = getCategoriesId();
 	//var_dump($categoriesId);
 	//exit;
-	$dataList='<datalist id="lstCategory">';
+	$dataList = '<datalist id="lstCategory"></datalist><br>';
 
     echo $dataList;
 	exit;
