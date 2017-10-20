@@ -27,20 +27,23 @@
 	}
 	switch ($action){
 	 case 'home':
-		include 'view/home.php';
+		include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/home.php';
 	 break;		
 
 	 case 'login':
-		include 'view/login.php';
+		include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/login.php';
 	 break;
 
 	 case 'registration':
-		include 'view/registration.php';
+		include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/registration.php';
 	 break;
 
+	 case 'addproduct':
+		include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/prod-mgmt.php';
+	 break;
 
 	 default:
-	  include 'view/home.php';
+	  include include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/home.php';
 } 
 
 ?>

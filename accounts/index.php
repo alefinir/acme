@@ -1,7 +1,8 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/connections.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
-	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/accounts-model.php';
+
+
 
 	$categories = getCategories();
 	//var_dump($categories);

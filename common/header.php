@@ -11,7 +11,8 @@
 	</div>
 </div> 
 <nav class="navigation">
-	<?php echo $navList;
+	<?php
+	echo $navList;
 	/*<ul>
 		<li><a href="index.php">Home</a></li>
 		<li><a href="anvils.php">Anvils</a></li>
