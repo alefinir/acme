@@ -22,8 +22,8 @@
 <div class="ablock">	
 	<h1>Product Management</h1>
 	<h2>Welcome to the product management page. Please choose an option below</h2>
-			<a href="/acme/view/new-cat.php">Add a New Category</a><br>  
-			<a href="/acme/view/new-prod.php">Add a New Product</a><br>   
+			<a href="/acme/products/index.php?action=addCategory">Add a New Category</a><br>  
+			<a href="/acme/products/index.php?action=addProduct">Add a New Product</a><br>   
 </div>			
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php';?> 		

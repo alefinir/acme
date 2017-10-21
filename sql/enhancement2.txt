@@ -1,7 +1,7 @@
 
 CREATE TABLE clients
 (
-  clientId INTEGER(10) NOT NULL PRIMARY KEY,
+  clientId INTEGER(10) NOT NULL PRIMARY KEY AUTOINCREMENT,
   clientFirstname VARCHAR(15) NOT NULL,
   clientLastname VARCHAR(25) NOT NULL,
   clientEmail VARCHAR(40) NOT NULL,

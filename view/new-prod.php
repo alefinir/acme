@@ -31,57 +31,43 @@
   <form  method="post" action="/acme/products/index.php">
     <fieldset class="tight">
       <legend></legend>
-
-      <label>
-        Type: <input name="lstCategory" list="lstCategory">
-      </label>
-      
-        <datalist id="lstCategory">
-        /* rellenar dinamicamente	
-          <option value="Flash Flood">
-          <option value="Hail">
-          <option value="Hurricane">
-          <option value="Thunderstorm">
-          <option value="Tornado">
-         */
-        </datalist><br>
-
+      <label>Type: <?php echo $catList;?></label>
 
      <label>
-        Product Name: <input type="text" name="invName" id="invName" value="" placeholder="Product Name" pattern="[a-zA-Z]{5,99}" required autofocus><br>
+        Product Name: <input type="text" name="invName" id="invName" value="" placeholder="Product Name" pattern="[a-z A-Z 0-9]{5,99}" autofocus><br>
      </label>
 
       <label>
         Product Description:<br><textarea name="invDescription" rows="4" cols="20" required></textarea><br>
       </label>
      <label>
-        Product Image: <input type="text" name="invImage" id="invImage" value="" placeholder="Product Image" pattern="[a-zA-Z]{5,99}" required><br>
+        Product Image: <input type="text" name="invImage" id="invImage" value="images/products/no-image.png" placeholder="Product Image" pattern="[a-z A-Z 0-9 \. \/ \-]{5,99}" required><br>
      </label>
      <label>
-        Product Thumbnail (path): <input type="text" name="invThumbnail" id="invThumbnail" value="" placeholder="Product Thumbnail Path" pattern="[a-zA-Z]{5,99}" required><br>
+        Product Thumbnail (path): <input type="text" name="invThumbnail" id="invThumbnail" value="images/products/no-image.png" placeholder="Product Thumbnail Path" pattern="[a-z A-Z 0-9 \. \/ \-]{5,99}" required><br>
      </label>
      <label>
     	 Product Price:	<input type="number" name="invPrice" id="invPrice" min="1" max="1000000"><br>
 	</label>
      <label>
-    	 In Stock:	<input type="number" name="invStock" id="invStock" min="1" max="1000"><br>
+    	 In Stock:	<input type="number" name="invStock" id="invStock" min="1" max="1000000"><br>
 	</label>
 	<label>
-    	 Shipping Size (W x H x L inches):	<input type="number" name="invSize" id=="invSize" min="1" max="1000"><br>
+    	 Shipping Size (W x H x L inches):	<input type="number" name="invSize" id="invSize" min="1" max="1000000"><br>
 	</label>
 	<label>
-    	 Weight: <input type="number" name="invWeight" id="invWeight" min="1" max="1000"><br>
+    	 Weight: <input type="number" name="invWeight" id="invWeight" min="1" max="10000000"><br>
 	</label>
      <label>
-        Location: <input type="text" name="invLocation" id="invLocation" value="" placeholder="Location" pattern="[a-zA-Z]{5,99}" required><br>
+        Location: <input type="text" name="invLocation" id="invLocation" value="" placeholder="Location" pattern="[a-z A-Z 0-9]{5,99}" required><br>
      </label>
      <label>
-        Vendor Name: <input type="text" name="invVendor" id="invVendor" value="" placeholder="Vendor Name" pattern="[a-zA-Z]{5,99}" required><br>
+        Vendor Name: <input type="text" name="invVendor" id="invVendor" value="" placeholder="Vendor Name" pattern="[a-z A-Z 0-9]{5,99}" required><br>
      </label>
      <label>
-        Primary Material: <input type="text" name="invStyle" id="invStyle" value="" placeholder="Material" pattern="[a-zA-Z]{5,99}" required><br>
+        Primary Material: <input type="text" name="invStyle" id="invStyle" value="" placeholder="Material" pattern="[a-z A-Z 0-9]{5,99}" required><br>
      </label>
-     /*falta categoryId*/
+  
 
     </fieldset>  
 

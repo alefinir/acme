@@ -36,7 +36,7 @@
         </fieldset>
     <div >
       <input type="submit" id="sbutton">
-		<a href="/acme/view/registration.php">Create an Account</a>      
+		<a href="/acme/accounts/index.php?action=register">Create an Account</a>      
     </div>
     </form>  
 </div>

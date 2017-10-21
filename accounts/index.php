@@ -1,7 +1,7 @@
 <?php
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/connections.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
-
+	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/accounts-model.php';
 
 
 	$categories = getCategories();
@@ -9,7 +9,7 @@
 	//exit;
 
 	$navList = '<ul>';
-	$navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home</a></li>";
+	$navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home</a></li> ";
 
 	foreach ($categories as $category) {
 		$navList .= "<li><a href='/acme/index.php?action=$category[categoryName]'title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
@@ -57,6 +57,7 @@ if($regOutcome === 1){
 }
 break;
 default:
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
 }
 
 ?>
