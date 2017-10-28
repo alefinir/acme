@@ -120,7 +120,19 @@ $regOutcome = newProduct($invName, $invDescription, $invImage, $invThumbnail, $i
 
 // Check and report the result
 if($regOutcome === 1){
-  $message = "<p>Thanks for adding $invName.</p>";
+$message = "<p>Thanks for adding $invName.</p>";
+  unset($invName);
+  unset($invDescription);
+  unset($invImage);
+  unset($invThumbnail);
+  unset($invPrice);
+  unset($invStock);
+  unset($invSize);
+  unset($invWeight);
+  unset($invLocation);
+  unset($catId);
+  unset($invVendor);
+  unset($invStyle);
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/new-prod.php';
   exit;
 } else {
