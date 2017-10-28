@@ -33,7 +33,7 @@
     <fieldset class="tight">
       <legend>New Category Name</legend>
       <label>
-        <input type="text" name="categoryName" id="categoryName" value="" placeholder="New Category Name" pattern="[a-zA-Z0-9]{3,99}" autofocus><br>
+        <input type="text" name="categoryName" id="categoryName" required pattern="[a-zA-Z0-9]{3,99}" autofocus><br>
      </label>
 
     </fieldset>  

@@ -186,3 +186,10 @@ header{
     flex-direction: column;
 
 }
+
+#message{
+  font-size: 0.7em;
+  color: #de2226;
+  font-style: italic;
+  font-weight: bold;
+}

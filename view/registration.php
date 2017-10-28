@@ -19,32 +19,28 @@
 	</header>
 	<div class="all">
 	<h1>Registration</h1>
-<div class="ablock">
-
-<?php
+  <?php
     if (isset($message)) {
      echo $message;
 }
-?>  
+?>
+<div class="ablock">  
   <form  method="post" action="/acme/accounts/index.php">
     <fieldset class="tight">
       <legend>Personal Information</legend>
       <label>
-        First Name: <input type="text" name="clientFirstname" id="clientFirstname" value="" placeholder="First Name" pattern="[a-z A-Z]{5,99}" required autofocus><br>
+        First Name: <input type="text" name="clientFirstname" id="clientFirstname" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>  pattern="[a-z A-Z]{5,99}" required autofocus><br>
      </label>
       <label>
-        Last Name: <input type="text" name="clientLastname" id="clientLastname" value="" placeholder="Last Name" pattern="[a-z A-Z]{5,99}" required><br>
+        Last Name: <input type="text" name="clientLastname" id="clientLastname" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>  pattern="[a-z A-Z]{5,99}" required><br>
      </label>      
       <label>
-        eMail: <input type="email" name="clientEmail" id="clientEmail" placeholder="yourname@yourdomain.com" required><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> " required><br>
       </label>
-      <label>
-        Password: <input type="password" name="clientPassword" id="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
-     </label>      
-      <label>
-        Confirm Password: <input type="password" name="clientConfirmpassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
-     </label>
-    </fieldset>  
+<label for="clientPassword">Password:
+<input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></label><br>
+<span id="message">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+</fieldset>  
 
     <div>
         <input type="submit" name="submit" id="regbtn" value="Register">

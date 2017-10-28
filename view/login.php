@@ -28,14 +28,16 @@
 <form action="/acme/accounts/index.php" method="post"> 
     <fieldset class="tight">
     <label>	
-        eMail: <input type="email" name="clientEmail" id="clientEmail" placeholder="yourname@yourdomain.com" required autofocus><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> required autofocus><br>
     </label>
-      <label>
-        Password: <input type="password" name="clientPassword" id="clientPassword" value="" placeholder="Password" pattern="[a-zA-Z]{8,99}" required><br>
-    </label>
+<label for="clientPassword">Password:
+<input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></label><br>
+<span id="message">Passwords must be at least 8 characters and contain at least 1 number, 1 capital letter and 1 special character</span>
+
         </fieldset>
     <div >
       <input type="submit" id="sbutton">
+      <input type="hidden" name="action" value="Login"> 
 		<a href="/acme/accounts/index.php?action=register">Create an Account</a>      
     </div>
     </form>  
