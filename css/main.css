@@ -193,3 +193,9 @@ header{
   font-style: italic;
   font-weight: bold;
 }
+
+#welcomeName{
+  color: #de2226;
+  font-style: italic;
+  font-weight: bold;
+}

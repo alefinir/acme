@@ -4,11 +4,19 @@
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
 
 
+// Create or access a Session
+session_start();
+
   $categories = getCategories();
   //var_dump($categories);
   //exit;
 
 
+
+// Check if the firstname cookie exists, get its value
+if(isset($_COOKIE['firstname'])){
+  $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_STRING);
+}
 
   $navList = buildNav($categories);
 

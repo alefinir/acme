@@ -4,6 +4,9 @@
 		<img class="logo-small" src="/acme/images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"> 
 	</div>
 	<div class="account">
+		<?php if(isset($cookieFirstname)){
+  			echo "<span id=".'"welcomeName"'.">Welcome $cookieFirstname </span>";
+		} ?> 
 		<a href="/acme/accounts/index.php">
 			<img class="img-acc" src="/acme/images/site/account-small.gif" alt="Logo ACME Foods"> 
 		</a>

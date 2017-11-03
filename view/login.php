@@ -25,7 +25,7 @@
 		}
 		?>	
 	<div class="ablock">
-<form action="/acme/accounts/index.php" method="post"> 
+<form action="/acme/accounts/" method="post"> 
     <fieldset class="tight">
     <label>	
         eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> required autofocus><br>
