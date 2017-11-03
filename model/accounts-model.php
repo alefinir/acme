@@ -27,4 +27,36 @@ The new function will handle site registrations
 
 		return $rowsChanged;
 	}
+
+/*
+this function will check for an existing email address.
+*/
+
+
+function checkExistingEmail($clientEmail)
+{
+
+$db = acmeConnect();
+
+$sql = 'SELECT clientEmail FROM clients WHERE clientEmail = :clientEmail';
+$stmt = $db->prepare($sql);
+$stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+$stmt->execute();
+$matchEmail = $stmt->fetch(PDO::FETCH_NUM);
+$stmt->closeCursor();
+
+if(empty($matchEmail)){
+	return 0;
+	//echo "no se encontro el mail";
+	//exit;
+
+}else{
+	return 1;
+	//echo "si se encontro el mail";
+	//exit;
+}
+
+
+}
+
  ?>

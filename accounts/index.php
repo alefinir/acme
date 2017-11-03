@@ -37,6 +37,14 @@ case 'register':
 $clientEmail = checkEmail($clientEmail);
 $checkPassword = checkPassword($clientPassword);
 
+/*check email */
+$existingEmail = checkExistingEmail($clientEmail);
+if($existingEmail){
+  $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
+  exit;
+}
+
 	//var_dump($clientFirstname);
 	//echo $clientFirstname;
 	//exit;
