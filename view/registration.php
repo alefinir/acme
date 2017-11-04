@@ -29,10 +29,10 @@
     <fieldset class="tight">
       <legend>Personal Information</legend>
       <label>
-        First Name: <input type="text" name="clientFirstname" id="clientFirstname" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>  pattern="[a-z A-Z]{5,99}" required autofocus><br>
+        First Name: <input type="text" name="clientFirstname" id="clientFirstname" <?php if(isset($clientFirstname)){echo "value='$clientFirstname'";} ?>  pattern="[a-z A-Z]{4,99}" required autofocus><br>
      </label>
       <label>
-        Last Name: <input type="text" name="clientLastname" id="clientLastname" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>  pattern="[a-z A-Z]{5,99}" required><br>
+        Last Name: <input type="text" name="clientLastname" id="clientLastname" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>  pattern="[a-z A-Z]{4,99}" required><br>
      </label>      
       <label>
         eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> " required><br>

@@ -1,3 +1,9 @@
+<?php
+$infoC=($_SESSION['clientData']);
+if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
+      header("Location: http://localhost/acme/" );
+     }
+?>
 <!DOCTYPE html>
 <html>
 <head>

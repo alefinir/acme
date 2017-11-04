@@ -1,4 +1,8 @@
 <?php
+$infoC=($_SESSION['clientData']);
+if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
+      header("Location: http://localhost/acme/" );
+     }
 
   $catList = '<select name="catId">';
   $preOpt='<option value="';

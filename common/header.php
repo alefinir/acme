@@ -8,8 +8,20 @@
 			$logueado=0;
 			$welcome="";
 
+			if(isset($_SESSION['loggedin'])){
+
+				if ($_SESSION['loggedin']) {
+					$logueado=1;
+				}
+			}
+
 		if($logueado){
-  				echo "<h3>Logout</h3>";
+  echo "<form  method=\"post\" action=\"/acme/accounts/index.php\">
+    <div>
+        <input type=\"submit\" name=\"submit\" id=\"regbtn\" value=\"Logout\">
+        <input type=\"hidden\" name=\"action\" value=\"Logout\">        
+    </div>
+  </form>";
 			}
 			else{
 

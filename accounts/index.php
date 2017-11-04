@@ -123,9 +123,23 @@ array_pop($clientData);
 // Store the array into the session
 $_SESSION['clientData'] = $clientData;
 // Send them to the admin view
+
+
 include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
 exit;
 
+
+break;
+
+case 'Logout':
+
+// remove all session variables
+session_unset(); 
+
+// destroy the session 
+session_destroy(); 
+
+header("Location: http://localhost/acme/accounts/index.php" );
 
 break;
 
