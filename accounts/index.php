@@ -139,7 +139,7 @@ session_unset();
 // destroy the session 
 session_destroy(); 
 
-header("Location: http://localhost/acme/accounts/index.php" );
+header("Location: http://localhost/acme/" );
 
 break;
 
