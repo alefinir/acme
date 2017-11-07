@@ -29,7 +29,15 @@ if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
 	<h1>Product Management</h1>
 	<h2>Welcome to the product management page. Please choose an option below</h2>
 			<a href="/acme/products/index.php?action=addCategory">Add a New Category</a><br>  
-			<a href="/acme/products/index.php?action=addProduct">Add a New Product</a><br>   
+			<a href="/acme/products/index.php?action=addProduct">Add a New Product</a><br>
+			<?php
+				if (isset($message)) {
+ 					echo $message;
+				} 
+				if (isset($prodList)) {
+ 					echo $prodList;
+				}
+			?>			   
 </div>			
 	<footer>
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php';?> 		

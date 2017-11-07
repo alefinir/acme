@@ -149,6 +149,24 @@ $message = "<p>Thanks for adding $invName.</p>";
 }
 break;
 default:
+  $products = getProductBasics();
+
+if(count($products) > 0){
+  $prodList = '<table class="tablas">';
+  $prodList .= '<thead>';
+  $prodList .= '<tr><th>Product Name</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+  $prodList .= '</thead>';
+  $prodList .= '<tbody>';
+  foreach ($products as $product) {
+   $prodList .= "<tr><td>$product[invName]</td>";
+   $prodList .= "<td><a href='/acme/products?action=mod&id=$product[invId]' title='Click to modify'>Modify</a></td>";
+   $prodList .= "<td><a href='/acme/products?action=del&id=$product[invId]' title='Click to delete'>Delete</a></td></tr>";
+  }
+   $prodList .= '</tbody></table>';
+  } else {
+   $message = '<p class="notify">Sorry, no products were returned.</p>';
+}
+
 	include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/prod-mgmt.php';
 }
 
