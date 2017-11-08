@@ -148,6 +148,17 @@ $message = "<p>Thanks for adding $invName.</p>";
   exit;
 }
 break;
+
+case 'mod':
+ $invId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+ $prodInfo = getProductInfo($invId);
+ if(count($prodInfo)<1){
+  $message = 'Sorry, no product information could be found.';
+ }
+ include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/prod-update.php';
+ exit;
+break;
+
 default:
   $products = getProductBasics();
 
