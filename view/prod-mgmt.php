@@ -2,7 +2,11 @@
 $infoC=($_SESSION['clientData']);
 if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
       header("Location: http://localhost/acme/" );
+      exit;
      }
+if (isset($_SESSION['message'])) {
+ $message = $_SESSION['message'];
+}     
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,3 +51,4 @@ if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
   <script src='/acme/scripts/script.js' type='text/javascript'></script>
 </body>
 </html>
+ <?php unset($_SESSION['message']); ?> 
