@@ -75,8 +75,6 @@ function getClient($clientEmail){
 //get client info by id
 function updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId){
 
-
-
 		$db = acmeConnect();
 
 		//$sql = 'INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword) VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)';
@@ -85,9 +83,12 @@ function updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId
 		$stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
 		$stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
 		$stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+		$stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
 		//$stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
 
 		$stmt->execute();
+		//$stmt->debugDumpParams();
+		//exit;
 
 		$rowsChanged = $stmt->rowCount();
 
@@ -105,10 +106,11 @@ function updatePass($clientId, $clientPassword){
 		//$sql = 'INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword) VALUES (:clientFirstname, :clientLastname, :clientEmail, :clientPassword)';
 		$sql = 'UPDATE clients SET clientPassword = :clientPassword WHERE clientId = :clientId';
 		$stmt = $db->prepare($sql);
-		$stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
-		$stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
-		$stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
-		//$stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
+		//$stmt->bindValue(':clientFirstname', $clientFirstname, PDO::PARAM_STR);
+		//$stmt->bindValue(':clientLastname', $clientLastname, PDO::PARAM_STR);
+		//$stmt->bindValue(':clientEmail', $clientEmail, PDO::PARAM_STR);
+		$stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
+		$stmt->bindValue(':clientPassword', $clientPassword, PDO::PARAM_STR);
 
 		$stmt->execute();
 
@@ -125,8 +127,10 @@ function getClientById($clientId){
 
   $db = acmeConnect();
   $sql = 'SELECT clientId, clientFirstname, clientLastname, clientEmail, clientLevel, clientPassword FROM clients WHERE clientId = :clientId';
+
   $stmt = $db->prepare($sql);
-  $stmt->bindValue(':email', $clientEmail, PDO::PARAM_STR);
+  $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
+
   $stmt->execute();
   $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
   $stmt->closeCursor();

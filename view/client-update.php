@@ -24,7 +24,7 @@ if (!$_SESSION['loggedin']) {
 	</header>
 	<div class="all">
     <?php
-    //var_dump($infoClient);
+    //var_dump($clientLastname);
     //exit;
     ?>
 	<h1>Update Account</h1>
@@ -44,7 +44,7 @@ if (!$_SESSION['loggedin']) {
         Last Name: <input type="text" name="clientLastname" id="clientLastname" <?php if(isset($clientLastname)){echo "value='$clientLastname'";}elseif(isset($infoClient['clientLastname'])) {echo "value='$infoClient[clientLastname]'"; } ?>  required><br>
      </label>      
       <label>
-        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientLastname'";}elseif(isset($infoClient['clientLastname'])) {echo "value='$infoClient[clientLastname]'"; } ?>  required><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";}elseif(isset($infoClient['clientEmail'])) {echo "value='$infoClient[clientEmail]'"; } ?>  required><br>
       </label>
     </fieldset>
     <div>

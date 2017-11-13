@@ -153,7 +153,12 @@ case 'modifyAccount':
   $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
   $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
 
-$clientEmail = checkEmail($clientEmail);
+//$clientEmail = checkExistingEmail($clientEmail);
+
+
+//var_dump($clientEmail);
+//var_dump($clientFirstname);
+//exit;
 
 
 //si es la misma direccion puede fallar tenes que chequearlo contra el de la session
@@ -184,10 +189,16 @@ if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
 
 // Send the data to the model
 $regUpdateClient = updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId);
+//$regUpdateClient = updateClient("Antonio Marcelossss", "Lefinua", "alefinir@theelectricfactory.com", "6");
+
+//  echo $regUpdateClient;
+//  exit;
 
 // Check and report the result
-if($regUpdateClient === 1){  
+if($regUpdateClient){  
   $message = "<p>Thanks for update $clientFirstname.</p>";
+
+
   // ask for data of new client
   //update date of the sessions
 //-----------------------------------------
@@ -217,14 +228,19 @@ break;
 case 'modifyPass':
 // Filter and store the data
   $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-    $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+  $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
 
-$clientEmail = checkEmail($clientEmail);
+$infoClient = ($_SESSION['clientData']);
+$cname=$infoClient['clientFirstname'];
+
+
+//$clientEmail = checkEmail($clientEmail);
 $checkPassword = checkPassword($clientPassword);
 
 
 // Check for missing data
 if(empty($checkPassword)){
+  $message = "<p>Sorry $clientFirstname, bad password. Please try again.</p>";
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
   exit;
 }
@@ -236,7 +252,7 @@ $regOutcome = updatePass($clientId, $hashedPassword);
 // Check and report the result
 if($regOutcome === 1){
   //setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
-  $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+  $message = "<p>Thanks for changing $cname password. Please use your email and password to login.</p>";
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
   exit;
 } else {
