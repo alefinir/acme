@@ -82,6 +82,7 @@ if($regOutcome === 1){
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/registration.php';
   exit;
 }
+break;
 //Login process----------------
 case 'Login':
 
@@ -142,6 +143,112 @@ session_destroy();
 header("Location: http://localhost/acme/" );
 
 break;
+//-----------------------------------------------------------
+
+
+case 'modifyAccount':
+// Filter and store the data
+  $clientFirstname = filter_input(INPUT_POST, 'clientFirstname', FILTER_SANITIZE_STRING);
+  $clientLastname = filter_input(INPUT_POST, 'clientLastname', FILTER_SANITIZE_STRING);
+  $clientEmail = filter_input(INPUT_POST, 'clientEmail', FILTER_SANITIZE_EMAIL);
+  $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+$clientEmail = checkEmail($clientEmail);
+
+
+//si es la misma direccion puede fallar tenes que chequearlo contra el de la session
+/*check email */
+$infoClient = ($_SESSION['clientData']);
+if($clientEmail != $infoClient['clientEmail']){
+
+  $existingEmail = checkExistingEmail($clientEmail);
+if($existingEmail){
+    $message = '<p class="notice">That email address already exists. Do you want to login instead?</p>';
+    include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
+    exit;
+    }
+}
+  //var_dump($clientFirstname);
+  //echo $clientFirstname;
+  //exit;
+
+// Check for missing data
+if(empty($clientFirstname) || empty($clientLastname) || empty($clientEmail)){
+
+  if(!is_null($clientFirstname)){
+        $message = '<p>Please provide information for all empty form fields.</p>';
+  }
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
+  exit;
+}
+
+// Send the data to the model
+$regUpdateClient = updateClient($clientFirstname, $clientLastname, $clientEmail, $clientId);
+
+// Check and report the result
+if($regUpdateClient === 1){  
+  $message = "<p>Thanks for update $clientFirstname.</p>";
+  // ask for data of new client
+  //update date of the sessions
+//-----------------------------------------
+  $clientData = getClientById($clientId);
+
+  $_SESSION['loggedin'] = TRUE;
+// Remove the password from the array
+// the array_pop function removes the last
+// element from an array
+array_pop($clientData);
+// Store the array into the session
+$_SESSION['clientData'] = $clientData;
+// Send them to the admin view
+//  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
+
+//-----------------------------------------
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
+  exit;
+} else {
+  $message = "<p>Sorry $clientFirstname, but the update failed. Please try again.</p>";
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
+  exit;
+}
+
+break;
+
+case 'modifyPass':
+// Filter and store the data
+  $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
+    $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
+
+$clientEmail = checkEmail($clientEmail);
+$checkPassword = checkPassword($clientPassword);
+
+
+// Check for missing data
+if(empty($checkPassword)){
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
+  exit;
+}
+$hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT); 
+
+// Send the data to the model// agregar funcion para cambiar pass
+$regOutcome = updatePass($clientId, $hashedPassword);
+
+// Check and report the result
+if($regOutcome === 1){
+  //setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
+  $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
+  exit;
+} else {
+  $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/registration.php';
+  exit;
+}
+
+
+
+break;
+//-----------------------------------------------------------
 
 default:
 

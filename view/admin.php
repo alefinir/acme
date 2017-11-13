@@ -4,13 +4,21 @@ if (!$_SESSION['loggedin']) {
      }else{
 							$infoClient=($_SESSION['clientData']);
 							$clientInformation='<h1>'.$infoClient['clientFirstname'].' '.$infoClient['clientLastname'].'</h1>';
+//display message of the session
+						    if (isset($message)) {
+     							$clientInformation.= $message;
+							}
+
+							$clientInformation.='<h2>You are logged in</h2>';
 							$clientInformation.='<ul>';
  							$clientInformation.= '<li> First Name: '.$infoClient['clientFirstname'].'</li>';
  							$clientInformation.= '<li> Last Name: '.$infoClient['clientLastname'].'</li>';
  							$clientInformation.= '<li> Email: '.$infoClient['clientEmail'].'</li>';
- 							$clientInformation.= '<li> User Level: '.$infoClient['clientLevel'].'</li>';
+ 							//$clientInformation.= '<li> User Level: '.$infoClient['clientLevel'].'</li>';
 							$clientInformation.= '</ul>';
+ 							$clientInformation.="<a href=\"/acme/accounts/index.php?action=modifyAccount\">Update account information</a>";						
 							if ((int)$infoClient['clientLevel']>=2) {
+								$clientInformation.='<h2>Use the link to administer products</h2>';	
  								$clientInformation.="<a href=\"/acme/products/index.php\">Product</a>";
  							}
      }
@@ -38,20 +46,9 @@ if (!$_SESSION['loggedin']) {
 	</header>
 	<div class="all">
 					<?php 
-
-
 							echo $clientInformation;
-							//var_dump($_SESSION['clientData']);
-							//exit;
 
-					/*$infoClient=($_SESSION['clientData']); 
-
-					echo '<ul>';
-						foreach($infoClient as $i){
- 							echo '<li>'.$i.'</li>';
-						}
-					echo '</ul>';
-					//echo "<h1>$cookieFirstname</h1>";*/?>
+							?>
 					<section>
 						<h6>.</h6>
 					</section>
