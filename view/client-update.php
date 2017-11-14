@@ -58,8 +58,8 @@ if (!$_SESSION['loggedin']) {
 <br>
 
   <?php
-    if (isset($message)) {
-     echo $message;
+    if (isset($messagePass)) {
+     echo $messagePass;
 }
 ?>
 

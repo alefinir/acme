@@ -215,7 +215,7 @@ $_SESSION['clientData'] = $clientData;
 //  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
 
 //-----------------------------------------
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
   exit;
 } else {
   $message = "<p>Sorry $clientFirstname, but the update failed. Please try again.</p>";
@@ -240,7 +240,7 @@ $checkPassword = checkPassword($clientPassword);
 
 // Check for missing data
 if(empty($checkPassword)){
-  $message = "<p>Sorry $clientFirstname, bad password. Please try again.</p>";
+  $messagePass = "<p>Sorry, bad password. Please try again.</p>";
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
   exit;
 }
@@ -252,12 +252,12 @@ $regOutcome = updatePass($clientId, $hashedPassword);
 // Check and report the result
 if($regOutcome === 1){
   //setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
-  $message = "<p>Thanks for changing $cname password. Please use your email and password to login.</p>";
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
+  $messagePass = "<p>Thanks for changing $cname password. Please use your email and password to login.</p>";
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
   exit;
 } else {
-  $message = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/registration.php';
+  $messagePass = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
   exit;
 }
 
