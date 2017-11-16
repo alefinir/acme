@@ -257,6 +257,42 @@ if ($updateResult===1) {
 
  break;
 
+ case 'category':
+
+ $type = filter_input(INPUT_GET, 'type', FILTER_SANITIZE_STRING);
+ $products = getProductsByCategory($type);
+ if(!count($products)){
+  $message = "<p class='notice'>Sorry, no $type products could be found.</p>";
+ } else {
+  $prodDisplay = buildProductsDisplay($products);
+ }
+//eliminar
+//echo $prodDisplay;
+//exit; 
+//----------
+
+   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/category.php';
+ break;
+
+//detalle logic--------------------------------------------------
+  case 'deta':
+
+ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+ $aProduct = getProductInfo($id);
+ if(!count($aProduct)){
+  $message = "<p class='notice'>Sorry, no product could be found.</p>";
+ } else {
+  $prod=$aProduct['invName'];
+  $aProdDisplay = aProductDisplay($aProduct);
+ }
+//eliminar
+//echo $prodDisplay;
+//exit; 
+//----------
+
+   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-detail.php';
+ break;
+
 //-----------------
 default:
   $products = getProductBasics();

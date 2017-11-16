@@ -63,5 +63,17 @@ header{
   margin-right: 20px; 
 }
 
+  .imageNormal{
+  display: none;
+  }
+  .imageSmall{
+  display: inline;
+  }
+
+  .aProduct{
+    text-align: center;
+
+}
+
 
 }

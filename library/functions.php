@@ -21,9 +21,9 @@ function checkPassword($clientPassword){
 function buildNav($categories){
 
 	$navList = '<ul>';
-	$navList .= "<li><a href='/acme/index.php' title='View the Acme home page'>Home</a></li> ";
+	$navList .= "<li><a href='/acme/' title='View the Acme home page'>Home</a></li> ";
 	foreach ($categories as $category) {
-		$navList .= "<li><a href='/acme/index.php?action=$category[categoryName]' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
+		$navList .= "<li><a href='/acme/products/?action=category&type=$category[categoryName]' title='View our $category[categoryName] product line'>$category[categoryName]</a></li>";
 	}
 	
 	$navList .= '</ul>';
@@ -40,6 +40,73 @@ function checkProdNumbers($prodNumber){
   return $valNumber;
 }
 
+// create html structure for show products
+function buildProductsDisplay($products){
+//-------------------------	
+ $pd = '<ul id="prod-display">';
+ foreach ($products as $product) {
+  $pd .= '<li>';
+  $pd .= "<a href='/acme/products/?action=deta&id=$product[invId]'>";
+  $pd .= "<img src='$product[invThumbnail]' alt='Image of $product[invName] on Acme.com'>";
+  $pd .= '<hr>';
+  $pd .= "<h2>$product[invName]</h2>";
+  $pd .= '</a>';
+  $pd .= "<span>$$product[invPrice]</span>";
+  $pd .= '</li>';
+ }
+ $pd .= '</ul>';
 
+ //----------------------
+ return $pd;
+} 
+//create the page of one product
+function aProductDisplay($aProduct){
+//-------------------------	
+  $pd = "<h1>$aProduct[invName]</h1>";
+
+	  $pd .= '<div class="container">';
+
+	  $pd .= '<div class="aProduct">';
+		  $pd .= '<img class="imageNormal" src='.$aProduct['invImage'].' alt="Image of '.$aProduct['invName']. ' on Acme.com" >';
+		  $pd .= '<img class="imageSmall" src='.$aProduct['invThumbnail'].' alt="Image of '.$aProduct['invName']. ' on Acme.com" >';		  
+
+	  $pd .= '</div>';
+
+	  $pd .= '<section class="recipe">';	  
+		  $pd .= '<ul class="noBullet">';
+
+			  $pd .= '<li>';
+			  $pd .= "<p>$aProduct[invDescription]</p>";
+			  $pd .= '</li>';
+
+			  $pd .= '<li>';
+			  $pd .= "<p>Primary Material: $aProduct[invStyle]</p>";
+			  $pd .= '</li>';
+
+			  $pd .= '<li>';
+			  $pd .= "<p>Product Weight: $aProduct[invWeight] lbs</p>";
+			  $pd .= '</li>';  
+
+			  $pd .= '<li>';
+			  $pd .= "<p>Shipping size: $aProduct[invSize] inches (W x L x H)</p>";
+			  $pd .= '</li>';
+
+			  $pd .= '<li>';
+			  $pd .= "<p>Ship from: $aProduct[invLocation]</p>";
+			  $pd .= '</li>';
+
+			  $pd .= '<li>';
+			  $pd .= "<p>Number in Stock: $aProduct[invStock]</p>";
+			  $pd .= '</li>';
+
+
+		  $pd .= '</ul>';
+
+		  $pd .= '<h2 id="price"> $ '.$aProduct['invStock']. " </h2>";
+		 $pd .= '</section>';
+	  $pd .= '</div>';
+ //----------------------
+ return $pd;
+}
 
 ?>

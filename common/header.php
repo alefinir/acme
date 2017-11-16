@@ -32,8 +32,7 @@
 				echo"
 				<a href=\"/acme/accounts/index.php\">
 					<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
-				</a>
-				<h3>My Account</h3>";
+				<h3>My Account</h3></a>";
 
 			}
 

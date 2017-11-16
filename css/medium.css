@@ -23,4 +23,24 @@
  	height: 40px;
 }
 
+  .imageNormal{
+  display: inline;
+  }
+  .imageSmall{
+  display: none;
+  }
+
+#prod-display{
+ flex-flow: row wrap;
+ justify-content: flex-start;
+}
+#prod-display li{
+ max-width: 200px;
+ flex: 1 0 auto;
+ text-align: center;
+ max-height: 400px; 
+}
+
+
+
 }
