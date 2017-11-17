@@ -54,7 +54,7 @@ p{
     /*margin-left: 20px;
     margin-right: 20px;*/
   }
-.navigation li { display: inline-block; margin-left: .25rem; }
+
 .navigation a {	
    display: block;
    color: #000000;
@@ -69,6 +69,16 @@ p{
 	font-weight: bolder;
           
   }
+
+.navigation button {
+    float: right;
+  }
+ .navigation ul{
+    padding-top: 1em;
+ }
+  
+.navigation li { display: inline-block; margin-left: .25rem; }
+
  
 
 .account{
@@ -256,4 +266,9 @@ caption {
   color: #de2226;
   letter-spacing: 2px;
   font-family: 'Bangers', cursive;
+}
+
+.psubtitle{ 
+  font-weight: bold;
+  color: #0000ee;
 }

@@ -1,15 +1,16 @@
  /*cellphone*/
  @media only screen and (max-width: 37.5em) {
-  .navigation { 
+  .navigation li { display: none; margin-left: .25rem; }
+  .navigation.responsive { 
     position: relative; 
   }
-  .navigation { 
+  .navigation.responsive { 
       border-top: 0px;
   }
-  .navigation ul { padding-left: 0px; }
-  .navigation li {  background-color:#000000; display: block; width: 100%; margin: 2px 0; border: 1px solid #ddd; }
-  .navigation li a { color: #de2226; padding: 1rem; text-align: center;  display: block; text-decoration:none; }
-  .navigation li a:hover { color:#990033; background-color: #ffffff; font-weight: bolder;}
+  .navigation.responsive ul { padding-left: 0px; }
+  .navigation.responsive li {  background-color:#000000; display: block; width: 100%; margin: 2px 0; border: 1px solid #ddd; }
+  .navigation.responsive li a { color: #de2226; padding: 1rem; text-align: center;  display: block; text-decoration:none; }
+  .navigation.responsive li a:hover { color:#990033; background-color: #ffffff; font-weight: bolder;}
 
   .logo{
 	display: none;

@@ -42,6 +42,7 @@
 	</div>
 </div> 
 <nav class="navigation">
+	   <button class="hamburger" onclick="toggleHam()">&#9776;</button>
 	<?php
 	echo $navList;
 	/*<ul>

@@ -76,33 +76,33 @@ function aProductDisplay($aProduct){
 		  $pd .= '<ul class="noBullet">';
 
 			  $pd .= '<li>';
-			  $pd .= "<p>$aProduct[invDescription]</p>";
+			  $pd .= '<p><span class="psubtitle">Description:</span><br>'.$aProduct['invDescription'].'</p>';
 			  $pd .= '</li>';
 
 			  $pd .= '<li>';
-			  $pd .= "<p>Primary Material: $aProduct[invStyle]</p>";
+			  $pd .= '<p><span class="psubtitle">Primary Material:</span> '.$aProduct['invStyle'].'</p>';
 			  $pd .= '</li>';
 
 			  $pd .= '<li>';
-			  $pd .= "<p>Product Weight: $aProduct[invWeight] lbs</p>";
+			  $pd .= '<p><span class="psubtitle">Product Weight:</span> '.$aProduct['invWeight'].' lbs</p>';
 			  $pd .= '</li>';  
 
 			  $pd .= '<li>';
-			  $pd .= "<p>Shipping size: $aProduct[invSize] inches (W x L x H)</p>";
+			  $pd .= '<p><span class="psubtitle">Shipping size:</span> '.$aProduct['invSize'] .'inches (W x L x H)</p>';
 			  $pd .= '</li>';
 
 			  $pd .= '<li>';
-			  $pd .= "<p>Ship from: $aProduct[invLocation]</p>";
+			  $pd .= '<p><span class="psubtitle">Ship from:</span> '.$aProduct['invLocation'].'</p>';
 			  $pd .= '</li>';
 
 			  $pd .= '<li>';
-			  $pd .= "<p>Number in Stock: $aProduct[invStock]</p>";
+			  $pd .= '<p><span class="psubtitle">Number in Stock:</span> '.$aProduct['invStock'].'</p>';
 			  $pd .= '</li>';
 
 
 		  $pd .= '</ul>';
 
-		  $pd .= '<h2 id="price"> $ '.$aProduct['invStock']. " </h2>";
+		  $pd .= '<h2 id="price"> $ '.$aProduct['invPrice']. " </h2>";
 		 $pd .= '</section>';
 	  $pd .= '</div>';
  //----------------------

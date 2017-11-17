@@ -30,5 +30,6 @@
   </div>
   <script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
   <script src='/acme/scripts/script.js' type='text/javascript'></script>
+<script src="/acme/scripts/hamburger.js"></script>
 </body>
 </html>
