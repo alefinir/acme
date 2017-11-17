@@ -25,6 +25,8 @@
 
   .imageNormal{
   display: inline;
+  max-width: 400px;
+  max-height: 400px;
   }
   .imageSmall{
   display: none;

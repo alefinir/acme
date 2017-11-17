@@ -67,6 +67,8 @@ header{
   display: none;
   }
   .imageSmall{
+  max-width: 200px;
+  max-height: 200px;
   display: inline;
   }
 

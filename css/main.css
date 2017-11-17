@@ -103,7 +103,9 @@ p{
     background: #808080;
     color: #262128;
 }
-
+.recipe{
+margin-right: 20px;
+}
 .recipe article h2{
   text-align: center;
 }
