@@ -17,6 +17,7 @@ foother*/
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/product-model.php';
   require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/uploads-model.php';
 
 
 // Create or access a Session
@@ -276,14 +277,23 @@ if ($updateResult===1) {
 
 //detalle logic--------------------------------------------------
   case 'deta':
-
  $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+//var_dump(getThumbnailImages($id));
+//  exit;
+
  $aProduct = getProductInfo($id);
  if(!count($aProduct)){
   $message = "<p class='notice'>Sorry, no product could be found.</p>";
  } else {
   $prod=$aProduct['invName'];
   $aProdDisplay = aProductDisplay($aProduct);
+
+//get array with all thumbnail images
+  $thumb = getThumbnailImages($id);
+//create html with previous array  
+  $aThumbDisplay = buildImageDisplayThumbnail($thumb);
+
  }
 //eliminar
 //echo $prodDisplay;
