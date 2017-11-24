@@ -15,7 +15,12 @@ if ($action == NULL) {
 	$action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 }
 
-$navList = buildNav();
+//$navList = buildNav();
+
+$categories = getCategories();
+//var_dump($categories);
+//exit;
+$navList = buildNav($categories);
 
 /* * ****************************************************
 * Variables for use with the Image Upload Functionality
