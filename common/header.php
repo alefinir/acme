@@ -5,6 +5,8 @@
 	</div>
 	<div class="account">
 		<?php 
+			//var_dump($cookieFirstname);
+			//exit;
 			$logueado=0;
 			$welcome="";
 
@@ -16,21 +18,26 @@
 			}
 
 		if($logueado){
-  echo "<form  method=\"post\" action=\"/acme/accounts/index.php\">
-    <div>
-        <input type=\"submit\" name=\"submit\" id=\"regbtn\" value=\"Logout\">
-        <input type=\"hidden\" name=\"action\" value=\"Logout\">        
-    </div>
-  </form>";
+
+			if(isset($cookieFirstname)){
+  					$welcome="<a href=\"/acme/accounts/index.php\"><span id=".'"welcomeName"'.">Welcome $cookieFirstname  |</span></a>";
+
+			} 
+				echo "$welcome";
+
+			  echo "<form  method=\"post\" action=\"/acme/accounts/index.php\">
+			    <div>
+			        <input type=\"submit\" name=\"submit\" id=\"regbtn\" value=\"Logout\">
+			        <input type=\"hidden\" name=\"action\" value=\"Logout\">        
+			    </div>
+			  </form>";
+
 			}
 			else{
 
-			if(isset($cookieFirstname)){
-  					$welcome="<span id=".'"welcomeName"'.">Welcome $cookieFirstname</span>";
-			} 
-				echo "$welcome";
+
 				echo"
-				<a href=\"/acme/accounts/index.php\">
+				<a href=\"/acme/accounts/?action=Login\">
 					<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
 				<h3>My Account</h3></a>";
 

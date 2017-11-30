@@ -85,6 +85,7 @@ p{
 	text-align: right;
     margin-right: 20px;
     margin-top: 20px;
+    display: flex;
 }
 .account h2{
 
@@ -220,6 +221,7 @@ header{
   color: #de2226;
   font-style: italic;
   font-weight: bold;
+  margin-right: 5px;
 }
 
 table {

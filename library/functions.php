@@ -271,7 +271,7 @@ function buildImageDisplayThumbnail($imageArray) {
  $id = '<ul id="prod-display">';
  foreach ($imageArray as $image) {
   $id .= '<li>';
-  $id .= "<img src='$image[imgPath]' title='$image[invName] image on Acme.com' alt='$image[invName] image on Acme.com'>";
+  $id .= "<img src='$image[imgPath]' title='$image[imgName] image on Acme.com' alt='$image[imgName] image on Acme.com'>";
   //$id .= "<p><a href='/acme/uploads?action=delete&imgId=$image[imgId]&filename=$image[imgName]' title='Delete the image'>Delete $image[imgName]</a></p>";
   $id .= '</li>';
  }

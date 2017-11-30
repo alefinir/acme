@@ -14,8 +14,8 @@ try {
 		echo "<h1>connection Worked</h1>";
 		return $link;
 	} catch(PDOException $e) {
-			header('Location: /acme/view/500.php');
-			exit;
+			//header('Location: /acme/view/500.php');
+		var_dump($e);			exit;
 		}
 }
 acmeConnect();

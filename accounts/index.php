@@ -73,7 +73,7 @@ $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashed
 
 // Check and report the result
 if($regOutcome === 1){
-	setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');	
+	//setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');	
   $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
   exit;
@@ -121,12 +121,18 @@ $_SESSION['loggedin'] = TRUE;
 // the array_pop function removes the last
 // element from an array
 array_pop($clientData);
+
 // Store the array into the session
 $_SESSION['clientData'] = $clientData;
 // Send them to the admin view
+$clientFirstname=$clientData['clientFirstname'];
+//var_dump($clientFirstname);
+//echo $cookieFirstname;
+//exit;
+setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/'); //falta ver si el cliente existe
 
-
-include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
+//include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
+header("Location: http://localhost/acme/accounts" );
 exit;
 
 
@@ -139,6 +145,7 @@ session_unset();
 
 // destroy the session 
 session_destroy(); 
+setcookie('firstname', $clientFirstname, strtotime('-1 year'), '/');
 
 header("Location: http://localhost/acme/" );
 
@@ -212,10 +219,13 @@ array_pop($clientData);
 // Store the array into the session
 $_SESSION['clientData'] = $clientData;
 // Send them to the admin view
-//  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
+  $clientFirstname=$clientData['clientFirstname'];
+  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
 
 //-----------------------------------------
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
+  //header("Location: http://localhost/acme/view/client-update.php" );
+
   exit;
 } else {
   $message = "<p>Sorry $clientFirstname, but the update failed. Please try again.</p>";
@@ -268,7 +278,7 @@ break;
 
 default:
 
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
   unset($message);
 }
 
