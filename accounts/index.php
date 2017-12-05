@@ -3,6 +3,7 @@
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/acme-model.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/accounts-model.php';
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/reviews-model.php';
 
 // Create or access a Session
 session_start();
@@ -11,6 +12,8 @@ session_start();
 if(isset($_COOKIE['firstname'])){
   $cookieFirstname = filter_input(INPUT_COOKIE, 'firstname', FILTER_SANITIZE_STRING);
 }
+
+
 
 
 	$categories = getCategories();
@@ -277,6 +280,31 @@ break;
 //-----------------------------------------------------------
 
 default:
+
+$infoClient = ($_SESSION['clientData']);
+$clientReviews = getClientReviews($infoClient['clientId']);
+//var_dump($clientReviews);
+//exit;
+
+if(count($clientReviews) > 0){
+
+  $reviewList = buildClientsReviews($clientReviews);
+  /*
+  $reviewList = '<table class="tablas">';
+  $reviewList .= '<thead>';
+  $reviewList .= '<tr><th>Reviews</th><td>&nbsp;</td><td>&nbsp;</td></tr>';
+  $reviewList .= '</thead>';
+  $reviewList .= '<tbody>';
+  foreach ($clientReviews as $review) {
+   $reviewList .= "<tr><td><h3>$review[invName]<h3><p>$review[reviewText]</p></td>";
+   $reviewList .= "<td><a href='/acme/reviews?action=mod&id=$review[reviewId]' title='Click to modify'>Modify</a></td>";
+   $reviewList .= "<td><a href='/acme/reviewss?action=del&id=$review[reviewId]' title='Click to delete'>Delete</a></td></tr>";
+  }
+   $reviewList .= '</tbody></table>';*/
+  } else {
+   $message = '<p class="notify">Sorry, no reviews were returned.</p>';
+}
+
 
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
   unset($message);

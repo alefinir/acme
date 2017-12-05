@@ -34,11 +34,11 @@ this function retrieve all reviews of a client.
 
 function getClientReviews($clientId){
   $db = acmeConnect();
-  $sql = 'SELECT reviewId, reviewText, reviewDate, invId FROM reviews WHERE clientId = :clientId';
+  $sql = 'SELECT reviewId, reviewText, reviewDate, inventory.invName FROM reviews JOIN inventory ON inventory.invId = reviews.invId WHERE clientId = :clientId';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
   $stmt->execute();
-  $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
+  $clientData = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
   return $clientData;
 }
@@ -51,12 +51,19 @@ this function retrieve all reviews of a product.
 */
 function getProductReviews($invId){
   $db = acmeConnect();
-  $sql = 'SELECT reviewId, reviewText, reviewDate, clientId FROM reviews WHERE invId = :invId';
+
+  $sql = 'SELECT reviewId, reviewText, reviewDate, clients.clientFirstname FROM reviews JOIN clients ON clients.clientID = reviews.clientId WHERE invId = :invId';
+
+//$sql = 'SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId';
+
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':invId', $invId, PDO::PARAM_INT);
   $stmt->execute();
-  $clientData = $stmt->fetch(PDO::FETCH_ASSOC);
+  $clientData = $stmt->fetchAll(PDO::FETCH_ASSOC);
   $stmt->closeCursor();
+  //var_dump($clientData);
+  //exit;
+
   return $clientData;
 }
 
@@ -106,7 +113,7 @@ function updateReview($reviewId, $reviewText, $reviewDate, $invId, $clientId){
 //-----------------------------------------
 
 //This function delete a review
-	function deleteProduct($reviewId){
+	function deleteReview($reviewId){
 
 		$db = acmeConnect();
 

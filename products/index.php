@@ -18,6 +18,7 @@ foother*/
 	require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/product-model.php';
   require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/library/functions.php';
   require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/uploads-model.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/acme/model/reviews-model.php';
 
 
 // Create or access a Session
@@ -45,6 +46,9 @@ if(isset($_COOKIE['firstname'])){
 
 
 	/*-----------------------------*/
+
+
+
 
     
 
@@ -186,7 +190,7 @@ case 'deleteProd':
   $deleteResult = deleteProduct($invId);
 
 // Check and report the result
-if ($updateResult) {
+if ($deleteResult) {
  $message = "<p>Congratulations, $invName was successfully deleted.</p>";
  $_SESSION['message'] = $message;
  header('Location: http://localhost/acme/products/');
@@ -287,6 +291,7 @@ if ($updateResult===1) {
   $message = "<p class='notice'>Sorry, no product could be found.</p>";
  } else {
   $prod=$aProduct['invName'];
+  $prodId=$aProduct['invId'];
   $aProdDisplay = aProductDisplay($aProduct);
 
 //get array with all thumbnail images
@@ -295,10 +300,24 @@ if ($updateResult===1) {
   $aThumbDisplay = buildImageDisplayThumbnail($thumb);
 
  }
+
+ $reviews = "<h2>Review the ".$prod."</h2>";
+
+
 //eliminar
 //echo $prodDisplay;
 //exit; 
 //----------
+
+
+/*
+Obtener las reviews de un producto especifico
+*/
+$reviews = getProductReviews($prodId);
+//var_dump($reviews);
+//exit;
+$rvs = buildProductsReviews($reviews);
+
 
    include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/product-detail.php';
  break;

@@ -237,46 +237,32 @@ $_SESSION['clientData'] = $clientData;
 
 break;
 
-case 'modifyPass':
-// Filter and store the data
-  $clientPassword = filter_input(INPUT_POST, 'clientPassword', FILTER_SANITIZE_STRING);
-  $clientId = filter_input(INPUT_POST, 'clientId', FILTER_SANITIZE_NUMBER_INT);
-
-$infoClient = ($_SESSION['clientData']);
-$cname=$infoClient['clientFirstname'];
 
 
-//$clientEmail = checkEmail($clientEmail);
-$checkPassword = checkPassword($clientPassword);
 
 
-// Check for missing data
-if(empty($checkPassword)){
-  $messagePass = "<p>Sorry, bad password. Please try again.</p>";
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
-  exit;
-}
-$hashedPassword = password_hash($clientPassword, PASSWORD_DEFAULT); 
+case 'delete':
 
-// Send the data to the model// agregar funcion para cambiar pass
-$regOutcome = updatePass($clientId, $hashedPassword);
+  $rId = filter_input(INPUT_GET, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
+
+// Send the data to the model
+  $deleteResult = deleteReview($rId);
+  //var_dump($rId);
+  //exit;
 
 // Check and report the result
-if($regOutcome === 1){
-  //setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
-  $messagePass = "<p>Thanks for changing $cname password. Please use your email and password to login.</p>";
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
-  exit;
-} else {
-  $messagePass = "<p>Sorry $clientFirstname, but the registration failed. Please try again.</p>";
-  include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';
+if ($deleteResult) {
+ $message = "<p>Congratulations, the review was successfully deleted.</p>";
+ $_SESSION['message'] = $message;
+ header('Location: http://localhost/acme/accounts/');
+ exit;
+}else {
+  $message = "<p>Error: the review was not deleted.</p>";
+  header('Location: http://localhost/acme/accounts/');
   exit;
 }
 
-
-
-break;
-//-----------------------------------------------------------
+ break; 
 
 default:
 

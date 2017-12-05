@@ -21,6 +21,7 @@ if (!$_SESSION['loggedin']) {
 								$clientInformation.='<h2>Use the link to administer products</h2>';	
  								$clientInformation.="<a href=\"/acme/products/index.php\">Product</a>";
  							}
+
      }
 ?>
 <!DOCTYPE html>
@@ -47,7 +48,10 @@ if (!$_SESSION['loggedin']) {
 	<div class="all">
 					<?php 
 							echo $clientInformation;
-
+							echo "<h2>Manage your Product Review</h2>";
+							if (isset($reviewList)) {
+								echo $reviewList; 
+							}
 							?>
 					<section>
 						<h6>.</h6>

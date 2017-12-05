@@ -279,4 +279,39 @@ function buildImageDisplayThumbnail($imageArray) {
  return $id;
 }
 
+function buildProductsReviews($reviews){
+//------------------------- 
+ $pd = '<ul id="prod-display">';
+ foreach ($reviews as $review) {
+  $pd .= '<li>';
+  //$pd .= "<a href='/acme/products/?action=deta&id=$product[invId]'>";
+  //$pd .= "<img src='$product[invThumbnail]' alt='Image of $product[invName] on Acme.com'>";
+  $pd .= "<h3>Posted by $review[clientFirstname]</h3>  on $review[reviewDate]";
+  //$pd .= '</a>';
+  //$pd .= "<span>$product[invPrice]</span>";
+  $pd .= "<p>$review[reviewText]</p>";
+  $pd .= '</li>';
+ }
+ $pd .= '</ul>';
+
+ //----------------------
+ return $pd;
+} 
+
+// Build images display for image management view
+function buildClientsReviews($reviews) {
+ $id = '<ul id="prod-display">';
+ foreach ($reviews as $review) {
+  $id .= '<li>';
+  $id .= "<h3>$review[invName]</h3> reviewed on ($review[reviewDate])";
+  $id .= "<p>$review[reviewText]</p>";
+  $id .= "<p><a href='/acme/reviews?action=delete&reviewId=$review[reviewId]&filename=$review[invName]' title='Delete the review'>Delete $review[invName]</a></p>";
+  $id .= "<p><a href='/acme/reviews?action=edit&reviewId=$review[reviewId]&filename=$review[invName]' title='Edit the review'>Edit $review[invName]</a></p>";
+  $id .= '</li>';
+ }
+ $id .= '</ul>';
+ return $id;
+}
+
+
 ?>
