@@ -1,8 +1,10 @@
 <?php
-$infoC=($_SESSION['clientData']);
-if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
-      header("Location: http://localhost/acme/" );
-     }
+ if ($_SESSION['clientData']['clientLevel'] < 2) {
+ header("Location: http://localhost/acme/");
+ exit;
+} 
+   // var_dump($reviewInfo);
+   //  exit;
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,25 +29,24 @@ if (!$_SESSION['loggedin'] || (int)$infoC['clientLevel']<2) {
 
 <div class="ablock">
 
-   <h1>Add Category</h1>
-  <h2>Add a new category of products below</h2>
-
 <?php
     if (isset($message)) {
      echo $message;
 }
+echo "<h1>Update Review of $invNameReview</h1>";
 ?>  
-  <form  method="post" action="/acme/reviews/?update=idReview&textReview">
+  <form  method="post" action="/acme/reviews/">
     <fieldset class="tight">
       <legend>Update Review</legend>
       <label>
-        Review:<br><textarea name="invDescription"  rows="4" cols="20" required><?php //if(isset($invDescription)){echo $invDescription;} ?></textarea><br>
-      </label>  
+       <?php echo $invNameReview;?><br><textarea name="reviewText"  rows="4" cols="30" required><?php if(isset($reviewText)){echo $reviewText;}elseif(isset($reviewInfo['reviewText'])) {echo "$reviewInfo[reviewText]"; } ?></textarea><br>
+      </label>
 
     </fieldset>  
 
     <div>
         <input type="submit" name="submit" id="updatereview" value="Edit Review">
+        <input type="hidden" name="reviewId" value="<?php if(isset($reviewId)){ echo $reviewId; } ?> ">
         <input type="hidden" name="action" value="update">        
     </div>
   </form>

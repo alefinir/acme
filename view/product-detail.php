@@ -1,3 +1,11 @@
+<?php
+ if ($_SESSION['clientData']['clientLevel'] < 2) {
+  header("Location: http://localhost/acme/");
+ exit;
+}
+//var_dump($_SESSION['clientData']);
+//exit;    
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,25 +31,37 @@
  <?php if(isset($message)){ echo $message; } ?> 
  <?php if(isset($aProdDisplay)){ echo $aProdDisplay; } ?> 	
  <?php if(isset($aThumbDisplay )){ echo $aThumbDisplay ; } ?>
- <h1>Customer Reviews</h1> 	
-  <?php if(isset($reviews )){ echo $reviews ; } ?>
 
-    <form  method="post" action="/acme/products/index.php">
+ <h1>Customer Reviews</h1> 	
+  <?php 
+  //var_dump($prodId);
+  //print session information
+  //var_dump();
+  //exit;
+  //if(isset($reviews )){ echo $reviews ; } 
+  $cName=$_SESSION['clientData']['clientFirstname']."-".$_SESSION['clientData']['clientLastname'];
+  //echo $cName;
+  //exit;
+  ?>
+
+    <form  method="post" action="/acme/reviews/index.php">
     <fieldset class="tight">
       <legend></legend>
      <label>
-        Screen Name: <input type="text" name="invName" id="invName" <?php //if(isset($invName)){echo "value='$invName'";} ?> pattern="[a-z A-Z 0-9]{5,99}" required autofocus><br>
+        Seen Name: <input type="text" name="clientName" id="clientName" <?php if(isset($cName)){echo "value= $cName";} ?> required disabled autofocus><br>
      </label>
 
       <label>
-        Review:<br><textarea name="invDescription"  rows="4" cols="20" required><?php //if(isset($invDescription)){echo $invDescription;} ?></textarea><br>
+        Review:<br><textarea name="reviewDescription"  rows="4" cols="20" required><?php if(isset($reviewDescription)){echo $reviewDescription;} ?></textarea><br>
       </label>  
 
     </fieldset>  
 
     <div>
         <input type="submit" name="submit" id="addreviewbtn" value="Submit Review">
-        <input type="hidden" name="action" value="addReview">        
+        <input type="hidden" name="invId" value=<?php echo $prodId?>>  
+        <input type="hidden" name="clientId" value=<?php echo $_SESSION['clientData']['clientId']?>>          
+        <input type="hidden" name="action" value="add">        
     </div>
   </form>
 <?php

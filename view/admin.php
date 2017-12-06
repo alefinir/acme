@@ -48,8 +48,8 @@ if (!$_SESSION['loggedin']) {
 	<div class="all">
 					<?php 
 							echo $clientInformation;
-							echo "<h2>Manage your Product Review</h2>";
 							if (isset($reviewList)) {
+								echo "<h2>Manage your Product Review</h2>";
 								echo $reviewList; 
 							}
 							?>

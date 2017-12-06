@@ -6,7 +6,8 @@ That this is the review model for comments.
 //The new function will add reviews to the products
 
 
-	function addReview($reviewText, $reviewDate, $invId, $clientId){
+	function addReview($reviewText, $invId, $clientId){
+		$reviewDate = date('Y-m-d H:i:s');
 
 		$db = acmeConnect();
 
@@ -14,10 +15,10 @@ That this is the review model for comments.
 
 		$stmt = $db->prepare($sql);
 
-		$stmt->bindValue(':reviewText', $clientFirstname, PDO::PARAM_STR);
-		$stmt->bindValue(':reviewDate', $clientLastname, PDO::PARAM_STR);
+		$stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
+		$stmt->bindValue(':reviewDate', $reviewDate, PDO::PARAM_STR);
 		$stmt->bindParam(':invId', $invId, PDO::PARAM_INT);
-		$stmt->bindParam(':clientId', $clientPassword, PDO::PARAM_INT);
+		$stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
 
 		$stmt->execute();
 
@@ -86,16 +87,14 @@ function getReview($reviewId){
 
 
 // update a review
-function updateReview($reviewId, $reviewText, $reviewDate, $invId, $clientId){
-
+function updateReview($reviewId, $reviewText){
+		$reviewDate = date('Y-m-d H:i:s');
 		$db = acmeConnect();
-		$sql = 'UPDATE reviews SET reviewText = :reviewText, reviewDate = :reviewDate, invId = :invId, clientId = :clientId WHERE reviewId = :reviewId';
+		$sql = 'UPDATE reviews SET reviewText = :reviewText, reviewDate = :reviewDate WHERE reviewId = :reviewId';
 		$stmt = $db->prepare($sql);
 
 		$stmt->bindValue(':reviewText', $reviewText, PDO::PARAM_STR);
 		$stmt->bindValue(':reviewDate', $reviewDate, PDO::PARAM_STR);
-		$stmt->bindParam(':invId', $invId, PDO::PARAM_INT);
-		$stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
 		$stmt->bindParam(':reviewId', $reviewId, PDO::PARAM_INT);
 
 		$stmt->execute();
