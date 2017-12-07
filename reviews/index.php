@@ -76,6 +76,16 @@ if($regAdd === 1){
 }
 break;
 
+case 'mod':
+ $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+ $reviewInfo = getReview($reviewId);
+ if(count($reviewinfo)<1){
+  $message = 'Sorry, no product information could be found.';
+ }
+ include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/update-review.php';
+ exit;
+break;
+
 case 'update':
 // Filter and store the data
   $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);

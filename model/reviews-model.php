@@ -35,7 +35,7 @@ this function retrieve all reviews of a client.
 
 function getClientReviews($clientId){
   $db = acmeConnect();
-  $sql = 'SELECT reviewId, reviewText, reviewDate, inventory.invName FROM reviews JOIN inventory ON inventory.invId = reviews.invId WHERE clientId = :clientId';
+  $sql = 'SELECT reviewId, reviewText, reviewDate, inventory.invName FROM reviews JOIN inventory ON inventory.invId = reviews.invId WHERE clientId = :clientId ORDER BY reviews.reviewDate DESC';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
   $stmt->execute();
@@ -53,7 +53,7 @@ this function retrieve all reviews of a product.
 function getProductReviews($invId){
   $db = acmeConnect();
 
-  $sql = 'SELECT reviewId, reviewText, reviewDate, clients.clientFirstname FROM reviews JOIN clients ON clients.clientID = reviews.clientId WHERE invId = :invId';
+  $sql = 'SELECT reviewId, reviewText, reviewDate, clients.clientFirstname FROM reviews JOIN clients ON clients.clientID = reviews.clientId WHERE invId = :invId ORDER BY reviews.reviewDate DESC';
 
 //$sql = 'SELECT imgId, imgPath, imgName, imgDate, inventory.invId, invName FROM images JOIN inventory ON images.invId = inventory.invId';
 

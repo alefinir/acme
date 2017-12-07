@@ -1,11 +1,3 @@
-<?php
- if ($_SESSION['clientData']['clientLevel'] < 2) {
-  header("Location: http://localhost/acme/");
- exit;
-}
-//var_dump($_SESSION['clientData']);
-//exit;    
-?>
 <!DOCTYPE html>
 <html>
 <head>
