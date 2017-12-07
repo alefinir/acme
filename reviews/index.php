@@ -82,7 +82,7 @@ case 'mod':
 //	var_dump($invNameReview );
 //	exit;
  $reviewInfo = getReview($reviewId);
- if(count($reviewinfo)<1){
+ if(count($reviewInfo)<1){
   $message = 'Sorry, no information could be found.';
  }
  include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/update-review.php';
