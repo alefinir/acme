@@ -78,9 +78,12 @@ break;
 
 case 'mod':
  $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
+ $invNameReview = filter_input(INPUT_GET, 'invName', FILTER_SANITIZE_STRING);
+//	var_dump($invNameReview );
+//	exit;
  $reviewInfo = getReview($reviewId);
  if(count($reviewinfo)<1){
-  $message = 'Sorry, no product information could be found.';
+  $message = 'Sorry, no information could be found.';
  }
  include $_SERVER['DOCUMENT_ROOT'] .'/acme/view/update-review.php';
  exit;
