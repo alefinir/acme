@@ -24,7 +24,6 @@
  <?php if(isset($aProdDisplay)){ echo $aProdDisplay; } ?> 	
  <?php if(isset($aThumbDisplay )){ echo $aThumbDisplay ; } ?>
 
- <h1>Customer Reviews</h1> 	
   <?php 
   //var_dump($prodId);
   //print session information
@@ -34,30 +33,44 @@
   $cName=$_SESSION['clientData']['clientFirstname']."-".$_SESSION['clientData']['clientLastname'];
   //echo $cName;
   //exit;
-  ?>
+  
 
-    <form  method="post" action="/acme/reviews/index.php">
-    <fieldset class="tight">
-      <legend></legend>
-     <label>
-        Seen Name: <input type="text" name="clientName" id="clientName" <?php if(isset($cName)){echo "value= $cName";} ?> required disabled autofocus><br>
-     </label>
-
-      <label>
-        Review:<br><textarea name="reviewDescription"  rows="4" cols="20" required><?php if(isset($reviewDescription)){echo $reviewDescription;} ?></textarea><br>
-      </label>  
-
-    </fieldset>  
-
-    <div>
-        <input type="submit" name="submit" id="addreviewbtn" value="Submit Review">
-        <input type="hidden" name="invId" value=<?php echo $prodId?>>  
-        <input type="hidden" name="clientId" value=<?php echo $_SESSION['clientData']['clientId']?>>          
-        <input type="hidden" name="action" value="add">        
-    </div>
-  </form>
-<?php
-echo $rvs;
+if (!$_SESSION['loggedin']) {
+	echo "<br>";
+	echo "<a href=\"/acme/accounts/?action=Login\">Login for reviewing an article</a>";
+	echo "<br>";
+	}
+else{
+$reviewForm = '<form  method="post" action="/acme/reviews/index.php">';
+$reviewForm .= '<fieldset class="tight">';
+$reviewForm .= '<legend></legend>';
+$reviewForm .= '<label>';
+$reviewForm .= 'Seen Name: <input type="text" name="clientName" id="clientName" ';
+ if(isset($cName))
+	{$reviewForm .= "value= $cName";}
+$reviewForm .= ' required disabled autofocus><br>';
+$reviewForm .= '</label>';
+$reviewForm .= '<label>';
+$reviewForm .= 'Review:<br><textarea name="reviewDescription"  rows="4" cols="20" required>';
+if(isset($reviewDescription)){
+	$reviewForm .= $reviewDescription;}
+$reviewForm.= '</textarea><br>';
+$reviewForm .= '</label>';
+$reviewForm .= '</fieldset>';  
+$reviewForm .= '<div>';
+$reviewForm .= '<input type="submit" name="submit" id="addreviewbtn" value="Submit Review">';
+$reviewForm .= '<input type="hidden" name="invId" value='.$prodId.'>';
+$reviewForm .= '<input type="hidden" name="clientId" value='.$_SESSION['clientData']['clientId'].'>';
+$reviewForm .= '<input type="hidden" name="action" value="add">';
+$reviewForm .= '</div>';
+$reviewForm .= '</form>';
+//var_dump($reviewForm);
+//exit;
+echo $reviewForm;
+};
+//print all reviews of this product
+	echo "<h1>Customer Reviews</h1>";
+	echo $rvs;
 ?>
 
 </div>			
