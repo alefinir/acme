@@ -30,10 +30,12 @@
   //var_dump();
   //exit;
   //if(isset($reviews )){ echo $reviews ; } 
-  $cName=$_SESSION['clientData']['clientFirstname']."-".$_SESSION['clientData']['clientLastname'];
+  $cName=substr($_SESSION['clientData']['clientFirstname'],0,1).$_SESSION['clientData']['clientLastname'];
   //echo $cName;
   //exit;
-  
+//print all reviews of this product
+  echo "<h1>Customer Reviews</h1>";  
+
 
 if (!$_SESSION['loggedin']) {
 	echo "<br>";
@@ -43,7 +45,7 @@ if (!$_SESSION['loggedin']) {
 else{
 $reviewForm = '<form  method="post" action="/acme/reviews/index.php">';
 $reviewForm .= '<fieldset class="tight">';
-$reviewForm .= '<legend></legend>';
+$reviewForm .= '<legend>Review The '.$prod.'</legend>';
 $reviewForm .= '<label>';
 $reviewForm .= 'Seen Name: <input type="text" name="clientName" id="clientName" ';
  if(isset($cName))
@@ -68,8 +70,7 @@ $reviewForm .= '</form>';
 //exit;
 echo $reviewForm;
 };
-//print all reviews of this product
-	echo "<h1>Customer Reviews</h1>";
+
 	echo $rvs;
 ?>
 

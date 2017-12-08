@@ -1,7 +1,7 @@
 <div class="box-father">
 	<div class="logoizq">
-		<img class="logo" src="/acme/images/site/logo.gif" alt="Logo ACME Foods"> 
-		<img class="logo-small" src="/acme/images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"> 
+		<a href="/acme"><img class="logo" src="/acme/images/site/logo.gif" alt="Logo ACME Foods"></a> 
+		<a href="/acme"><img class="logo-small" src="/acme/images/site/logo-small.gif" alt="Logo ACME Foods CellPhone"></a>
 	</div>
 	<div class="account">
 		<?php 

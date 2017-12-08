@@ -1,10 +1,10 @@
 <?php
- if ($_SESSION['clientData']['clientLevel'] < 2) {
+ if (!$_SESSION['loggedin']) {
  header("Location: http://localhost/acme/");
  exit;
 } 
-   // var_dump($reviewInfo);
-   //  exit;
+//   var_dump($reviewInfo);
+//     exit;
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,20 +33,22 @@
     if (isset($message)) {
      echo $message;
 }
-echo "<h1>Update Review of $invNameReview</h1>";
+echo "<h1>$invNameReview Review</h1>";
+echo "<p>Review on $reviewInfo[reviewDate]</p>";
 ?>  
   <form  method="post" action="/acme/reviews/">
     <fieldset class="tight">
-      <legend>Update Review</legend>
+      <legend>Review Text</legend>
       <label>
-       <?php echo $invNameReview;?><br><textarea name="reviewText"  rows="4" cols="30" required><?php if(isset($reviewText)){echo $reviewText;}elseif(isset($reviewInfo['reviewText'])) {echo "$reviewInfo[reviewText]"; } ?></textarea><br>
+       <?php echo $invNameReview;?><br><textarea name="reviewText"  rows="4" cols="30" required><?php if(isset($reviewInfo['reviewText'])) {echo "$reviewInfo[reviewText]"; } ?></textarea><br>
       </label>
 
     </fieldset>  
 
     <div>
-        <input type="submit" name="submit" id="updatereview" value="Edit Review">
+        <input type="submit" name="submit" id="updatereview" value="Update">
         <input type="hidden" name="reviewId" value="<?php if(isset($reviewId)){ echo $reviewId; } ?> ">
+        <input type="hidden" name="invName" value="<?php if(isset($invNameReview)){ echo $invNameReview; } ?> ">
         <input type="hidden" name="action" value="update">        
     </div>
   </form>

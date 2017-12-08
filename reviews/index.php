@@ -93,7 +93,7 @@ case 'update':
 // Filter and store the data
   $reviewText = filter_input(INPUT_POST, 'reviewText', FILTER_SANITIZE_STRING);
   $reviewId = filter_input(INPUT_POST, 'reviewId', FILTER_SANITIZE_NUMBER_INT);
-
+  $invNameReview = filter_input(INPUT_POST, 'invName', FILTER_SANITIZE_STRING);
 
 //$clientEmail = checkExistingEmail($clientEmail);
 //si es la misma direccion puede fallar tenes que chequearlo contra el de la session
@@ -118,7 +118,7 @@ if(empty($reviewId) || empty($reviewText)){
   if(!is_null($reviewText)){
         $message = '<p>Please provide information for all empty form fields.</p>';
   }
-  //$reviewInfo=getReview($reviewId);
+  $reviewInfo=getReview($reviewId);
 
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/update-review.php';
   exit;
