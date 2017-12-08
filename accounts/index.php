@@ -76,8 +76,13 @@ $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashed
 
 // Check and report the result
 if($regOutcome === 1){
-	//setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');	
+	setcookie('firstime', $clientFirstname, strtotime('+1 year'), '/');	
+
   $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+//to check
+  if(isset($_COOKIE['firstime'])){
+  $cookieFirstname = filter_input(INPUT_COOKIE, 'firstime', FILTER_SANITIZE_STRING);
+}
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
   exit;
 } else {
@@ -132,6 +137,7 @@ $clientFirstname=$clientData['clientFirstname'];
 //var_dump($clientFirstname);
 //echo $cookieFirstname;
 //exit;
+setcookie('firstime', $clientFirstname, strtotime('-1 year'), '/');  
 setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/'); //falta ver si el cliente existe
 
 //include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/admin.php';
