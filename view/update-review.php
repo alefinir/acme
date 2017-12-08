@@ -33,6 +33,7 @@
     if (isset($message)) {
      echo $message;
 }
+$invNameReview=$reviewInfo[invName];
 echo "<h1>$invNameReview Review</h1>";
 $d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
 echo "<p>Review on $d</p>";

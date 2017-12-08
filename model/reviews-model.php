@@ -76,7 +76,7 @@ function getProductReviews($invId){
 // Get a specific review
 function getReview($reviewId){
   $db = acmeConnect();
-  $sql = 'SELECT reviewText, reviewDate, invId, clientId FROM reviews WHERE reviewId = :reviewId';
+  $sql = 'SELECT reviewText, reviewDate, reviews.invId, invName FROM reviews JOIN inventory ON inventory.invId = reviews.invId WHERE reviewId = :reviewId';
   $stmt = $db->prepare($sql);
   $stmt->bindParam(':reviewId', $reviewId, PDO::PARAM_INT);
   $stmt->execute();

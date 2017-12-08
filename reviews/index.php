@@ -78,7 +78,8 @@ break;
 
 case 'mod':
  $reviewId = filter_input(INPUT_GET, 'reviewId', FILTER_VALIDATE_INT);
- $invNameReview = filter_input(INPUT_GET, 'invName', FILTER_SANITIZE_STRING);
+ $invId = filter_input(INPUT_GET, 'invId', FILTER_VALIDATE_INT);
+ //$invNameReview = filter_input(INPUT_GET, 'invName', FILTER_SANITIZE_STRING);
 //	var_dump($invNameReview );
 //	exit;
  $reviewInfo = getReview($reviewId);
