@@ -14,6 +14,7 @@
 
 				if ($_SESSION['loggedin']) {
 					$logueado=1;
+					//setcookie('firstime', $clientFirstname, strtotime('-1 year'), '/');  
 				}
 			}
 
@@ -35,10 +36,6 @@
 			}
 			else{
 
-				if(isset($cookieFirstname)){
-					$welcome2="<span id=".'"welcomeName"'.">Welcome $cookieFirstname  |</span>";
-					echo $welcome2;
-				}
 				echo"
 				<a href=\"/acme/accounts/?action=Login\">
 					<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
