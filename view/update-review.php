@@ -34,7 +34,8 @@
      echo $message;
 }
 echo "<h1>$invNameReview Review</h1>";
-echo "<p>Review on $reviewInfo[reviewDate]</p>";
+$d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
+echo "<p>Review on $d</p>";
 ?>  
   <form  method="post" action="/acme/reviews/">
     <fieldset class="tight">

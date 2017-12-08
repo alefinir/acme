@@ -309,9 +309,9 @@ $d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
  foreach ($reviews as $review) {
   $id .= '<li>';
   $id .= '<span id="rname">'.$review[invName].'</span> reviewed on ('.$d.') ';
-
-  $id .= "<a href='/acme/reviews?action=delete&reviewId=$review[reviewId]&invName=$review[invName]' title='Delete the review'>Delete</a> | ";
-  $id .= "<a href='/acme/reviews?action=mod&reviewId=$review[reviewId]&invName=$review[invName]' title='Edit the review'>Edit</p>";
+  $id .= "<a href='/acme/reviews?action=delete&reviewId=$review[reviewId]&invName=$review[invName]' title='Delete the review'>Delete</a>";
+  $id .= " | ";
+  $id .= "<a href='/acme/reviews?action=mod&reviewId=$review[reviewId]&invName=$review[invName]' title='Edit the review'>Edit</a>";
   $id .= '</li>';
  }
  $id .= '</ul>';
