@@ -275,22 +275,22 @@ caption {
   color: #0000ee;
 }
 
-#rev-display{
+.rev-display{
  background-color: #f8f294;
 list-style-type:none;
 padding-right: 40px;
 }
-#rev-display h3{
+.rev-display h3{
  text-align: left;
  background-color: #808080;
 }
-#rev-display h4{
+.rev-display h4{
  text-align: right;
 }
-#rev-display li{
+.rev-display li{
  background-color: #ffffff;
 }
-#rname{
+.rname{
   letter-spacing: 2px;
     font-family: 'Bangers', cursive;
 }

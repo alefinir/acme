@@ -35,7 +35,7 @@
         Last Name: <input type="text" name="clientLastname" id="clientLastname" <?php if(isset($clientLastname)){echo "value='$clientLastname'";} ?>  pattern="[a-z A-Z]{4,99}" required><br>
      </label>      
       <label>
-        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?> " required><br>
+        eMail: <input type="email" name="clientEmail" id="clientEmail" <?php if(isset($clientEmail)){echo "value='$clientEmail'";} ?>  required><br>
       </label>
 <label for="clientPassword">Password:
 <input type="password" name="clientPassword" id="clientPassword" required pattern="(?=^.{8,}$)(?=.*\d)(?=.*\W+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"></label><br>
@@ -43,7 +43,7 @@
 </fieldset>  
 
     <div>
-        <input type="submit" name="submit" id="regbtn" value="Register">
+        <input type="submit" name="submit" class="regbtn" value="Register">
         <input type="hidden" name="action" value="register">        
     </div>
   </form>
@@ -52,8 +52,8 @@
 			<?php include $_SERVER['DOCUMENT_ROOT'] . '/acme/common/footer.php'; ?> 		
 	</footer>
   </div>
-  <script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
-  <script src='/acme/scripts/script.js' type='text/javascript'></script>
+  <script src='/acme/scripts/jquery-3.0.0.js'></script>
+  <script src='/acme/scripts/script.js'></script>
   <script src="/acme/scripts/hamburger.js"></script>
 </body>
 </html>

@@ -281,7 +281,7 @@ function buildImageDisplayThumbnail($imageArray) {
 
 function buildProductsReviews($reviews){
 //------------------------- 
- $pd = '<ul id="rev-display">';
+ $pd = '<ul class="rev-display">';
   $d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
 
  //$pd = '<ul class="review-display">';
@@ -305,11 +305,11 @@ function buildProductsReviews($reviews){
 // Build images display for image management view
 function buildClientsReviews($reviews) {
 $d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
- $id = '<ul id="rev-display2">';
+ $id = '<ul class="rev-display2">';
  foreach ($reviews as $review) {
   $id .= '<li>';
-  $id .= '<span id="rname">'.$review[invName].'</span> reviewed on ('.$d.') ';
-  $id .= "<a href='/acme/reviews?action=delete&reviewId=$review[reviewId]&invName=$review[invName]' title='Delete the review'>Delete</a>";
+  $id .= '<span class="rname">'.$review[invName].'</span> reviewed on ('.$d.') ';
+  $id .= "<a href='/acme/reviews?action=delete&reviewId=$review[reviewId]' title='Delete the review'>Delete</a>";
   $id .= " | ";
   $id .= "<a href='/acme/reviews?action=mod&reviewId=$review[reviewId]&invName=$review[invName]' title='Edit the review'>Edit</a>";
   $id .= '</li>';

@@ -26,7 +26,7 @@
 	</footer>
   </div>
    <script src="scripts/hamburger.js"></script>
-  <script src='/acme/scripts/jquery-3.0.0.js' type='text/javascript'></script>
+  <script src='/acme/scripts/jquery-3.0.0.js'></script>
 <script src="/acme/scripts/hamburger.js"></script>
 </body>
 </html>
