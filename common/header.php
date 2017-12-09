@@ -18,20 +18,27 @@
 				}
 			}
 
-		if($logueado){
+		/*/if($logueado){
 
 			if(isset($cookieFirstname)){
   					$welcome="<a href=\"/acme/accounts/index.php\"><span id=".'"welcomeName"'.">Welcome $cookieFirstname  |</span></a>";
 
-			} 
+			//} 
 				echo "$welcome";
 
+			if($logueado){	
 			  echo "<form  method=\"post\" action=\"/acme/accounts/index.php\">
 			    <div>
 			        <input type=\"submit\" name=\"submit\" id=\"regbtn\" value=\"Logout\">
 			        <input type=\"hidden\" name=\"action\" value=\"Logout\">        
 			    </div>
 			  </form>";
+			}
+
+
+					echo "<a href=\"/acme/accounts/?action=Login\">
+					<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
+					<h3>My Account</h3></a>";
 
 			}
 			else{
@@ -41,8 +48,40 @@
 					<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
 				<h3>My Account</h3></a>";
 
-			}
+			}*/
 
+
+			// we will check this part
+
+			if(isset($cookieFirstname)){
+				if($logueado){
+  					$welcome="<a href=\"/acme/accounts/index.php\"><span id=".'"welcomeName"'.">Welcome $cookieFirstname  |</span></a>";
+					echo "$welcome";
+			  		echo "<form  method=\"post\" action=\"/acme/accounts/index.php\">
+			    	<div>
+			        	<input type=\"submit\" name=\"submit\" id=\"regbtn\" value=\"Logout\">
+			        	<input type=\"hidden\" name=\"action\" value=\"Logout\">        
+			    	</div>
+			  		</form>";
+				}
+				else{
+  					$welcome="<a href=\"/acme/accounts/index.php\"><span id=".'"welcomeName"'.">Welcome $cookieFirstname  |</span></a>";
+					echo "$welcome";
+					echo "
+						<a href=\"/acme/accounts/?action=Login\">
+						<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
+						<h3>My Account</h3></a>";					
+
+				}
+
+			 }
+			 else
+			 	{
+					echo "
+						<a href=\"/acme/accounts/?action=Login\">
+						<img class=\"img-acc\" src=\"/acme/images/site/account-small.gif\" alt=\"Logo ACME Foods\"> 
+						<h3>My Account</h3></a>";
+			}
 
 		?> 
 

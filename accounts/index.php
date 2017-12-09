@@ -81,16 +81,17 @@ $regOutcome = regClient($clientFirstname, $clientLastname, $clientEmail, $hashed
 
 // Check and report the result
 if($regOutcome === 1){
-	//setcookie('firstime', $clientFirstname, strtotime('+1 year'), '/');	
+	setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');	
 
   $message = "<p>Thanks for registering $clientFirstname. Please use your email and password to login.</p>";
+  $cookieFirstname=$clientFirstname;
 //to check
-  if(isset($_COOKIE['firstime'])){
+  //if(isset($_COOKIE['firstime'])){
   //$cookieFirstime = filter_input(INPUT_COOKIE, 'firstime', FILTER_SANITIZE_STRING);
   //var_dump($cookieFirstime );
   //exit;
-}
-  //header("Location: http://localhost/acme/accounts" );
+//}
+  //header("Location: http://localhost/acme/accounts?action=Login" );
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/login.php';
   exit;
 } else {
@@ -237,7 +238,9 @@ array_pop($clientData);
 $_SESSION['clientData'] = $clientData;
 // Send them to the admin view
   $clientFirstname=$clientData['clientFirstname'];
-  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/');  
+  setcookie('firstname', $clientFirstname, strtotime('+1 year'), '/'); 
+  $cookieFirstname=$clientFirstname;
+ 
 
 //-----------------------------------------
   include $_SERVER['DOCUMENT_ROOT'] . '/acme/view/client-update.php';

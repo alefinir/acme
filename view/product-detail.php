@@ -30,12 +30,12 @@
   //var_dump();
   //exit;
   //if(isset($reviews )){ echo $reviews ; } 
-  $cName=substr($_SESSION['clientData']['clientFirstname'],0,1).$_SESSION['clientData']['clientLastname'];
+  //$cName=substr($_SESSION['clientData']['clientFirstname'],0,1).$_SESSION['clientData']['clientLastname'];
   //echo $cName;
   //exit;
 //print all reviews of this product
   echo "<h1>Customer Reviews</h1>";  
-
+if(isset($_SESSION['loggedin'] )){
 
 if (!$_SESSION['loggedin']) {
 	echo "<br>";
@@ -48,6 +48,8 @@ $reviewForm .= '<fieldset class="tight">';
 $reviewForm .= '<legend>Review The '.$prod.'</legend>';
 $reviewForm .= '<label>';
 $reviewForm .= 'Seen Name: <input type="text" name="clientName" id="clientName" ';
+$cName=substr($_SESSION['clientData']['clientFirstname'],0,1).$_SESSION['clientData']['clientLastname'];
+
  if(isset($cName))
 	{$reviewForm .= "value= $cName";}
 $reviewForm .= ' required disabled autofocus><br>';
@@ -70,7 +72,7 @@ $reviewForm .= '</form>';
 //exit;
 echo $reviewForm;
 };
-
+};
 	echo $rvs;
 ?>
 

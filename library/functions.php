@@ -265,7 +265,7 @@ function resizeImage($old_image_path, $new_image_path, $max_width, $max_height) 
   // Free any memory associated with the old image
   imagedestroy($old_image);
 }
-
+  
 // Build images display for a product on image display
 function buildImageDisplayThumbnail($imageArray) {
  $id = '<ul id="prod-display">';
@@ -282,10 +282,11 @@ function buildImageDisplayThumbnail($imageArray) {
 function buildProductsReviews($reviews){
 //------------------------- 
  $pd = '<ul class="rev-display">';
-  $d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
 
  //$pd = '<ul class="review-display">';
  foreach ($reviews as $review) {
+    $d=date_format(date_create($review['reviewDate']), 'jS F \, Y');
+
   $pd .= '<li>';
   //$pd .= "<a href='/acme/products/?action=deta&id=$product[invId]'>";
   //$pd .= "<img src='$product[invThumbnail]' alt='Image of $product[invName] on Acme.com'>";
@@ -304,9 +305,10 @@ function buildProductsReviews($reviews){
 
 // Build images display for image management view
 function buildClientsReviews($reviews) {
-$d=date_format(date_create($review[reviewDate]), 'jS F \, Y');
  $id = '<ul class="rev-display2">';
  foreach ($reviews as $review) {
+  $d=date_format(date_create($review['reviewDate']), 'jS F \, Y');
+
   $id .= '<li>';
   $id .= '<span class="rname">'.$review[invName].'</span> reviewed on ('.$d.') ';
   $id .= "<a href='/acme/reviews?action=delete&reviewId=$review[reviewId]' title='Delete the review'>Delete</a>";
